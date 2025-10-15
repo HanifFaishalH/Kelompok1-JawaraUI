@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
-import 'page/main_page.dart'; // Import MainScreen yang baru
-import 'theme/AppTheme.dart';    // Import tema
+import 'theme/AppTheme.dart';
+import 'screens/dashboard_screen.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter App',
+      title: 'Dashboard Warga',
       debugShowCheckedModeBanner: false,
-      theme: AppTheme.lightTheme,
-      home: const MainScreen(), // Menggunakan MainScreen sebagai halaman utama
+      theme: AppTheme.lightTheme, // Gunakan tema ungu kamu
+      home: const DashboardScreen(),
     );
   }
 }
