@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'theme/AppTheme.dart';
-import 'screens/dashboard_screen.dart';
+import 'app_router.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,11 +11,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Dashboard Warga',
+    return MaterialApp.router(
+      title: 'Jawara Apps',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme, // Gunakan tema ungu kamu
-      home: const DashboardScreen(),
+      routerConfig: appRouter,
     );
   }
 }
