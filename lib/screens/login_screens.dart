@@ -52,9 +52,12 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   void _handleDaftar() {
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Halaman pendaftaran dalam pengembangan')),
-    );
+    Future.delayed(const Duration(milliseconds: 50), () {
+      context.go('/register');
+    });
+    // ScaffoldMessenger.of(context).showSnackBar(
+    //   const SnackBar(content: Text('Halaman pendaftaran dalam pengembangan')),
+    // );
   }
 
   @override
