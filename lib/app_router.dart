@@ -5,6 +5,7 @@ import 'package:jawaramobile_1/screens/register_screens.dart';
 import 'package:jawaramobile_1/screens/menu_screen.dart';
 import 'package:jawaramobile_1/screens/pengeluaran_screen.dart';
 import 'package:jawaramobile_1/screens/tambah_pengeluaran_screen.dart';
+import 'package:jawaramobile_1/screens/penerimaan_warga_screen.dart';
 
 final appRouter = GoRouter(
   initialLocation: '/login',
@@ -38,6 +39,11 @@ final appRouter = GoRouter(
       path: '/tambah-pengeluaran',
       name: 'tambah-pengeluaran',
       builder: (context, state) => const TambahPengeluaranScreen(),
+    ),
+    GoRoute(
+      path: '/penerimaan-warga',
+      name: 'penerimaan-warga',
+      builder: (context, state) => const PenerimaanWargaScreen(),
     ),
   ],
 );

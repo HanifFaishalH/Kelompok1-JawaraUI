@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../theme/AppTheme.dart';
+import 'package:go_router/go_router.dart'; // Import GoRouter
 
 // Model data untuk simulasi
 class PermintaanAkun {
@@ -134,7 +135,7 @@ class _PenerimaanWargaScreenState extends State<PenerimaanWargaScreen> {
                   ),
                   const SizedBox(height: 20),
 
-                  // Status Filter (ditambahkan berdasarkan screenshot filter, diasumsikan untuk memfilter permintaan yang sudah 'Diterima' atau 'Ditolak' sebelumnya)
+                  // Status Filter (ditambahkan berdasarkan screenshot filter)
                   Text('Status', style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontWeight: FontWeight.bold)),
                   const SizedBox(height: 8),
                   DropdownButtonFormField<String>(
@@ -219,8 +220,7 @@ class _PenerimaanWargaScreenState extends State<PenerimaanWargaScreen> {
     return _permintaanList.where((permintaan) {
       final matchesNama = _filterNama == null || permintaan.nama.toLowerCase().contains(_filterNama!.toLowerCase());
       final matchesJK = _filterJenisKelamin == null || permintaan.jenisKelamin.toLowerCase() == _filterJenisKelamin!.toLowerCase();
-      // Asumsi: Kita tidak bisa memfilter status karena data model tidak menyimpannya, 
-      // tetapi kita tetap sertakan logika (anggap selalu true)
+      // Asumsi: Kita hanya menggunakan filter Nama dan Jenis Kelamin untuk data simulasi
       // final matchesStatus = _filterStatus == null || permintaan.status.toLowerCase() == _filterStatus!.toLowerCase();
       
       return matchesNama && matchesJK; // && matchesStatus;
@@ -250,6 +250,15 @@ class _PenerimaanWargaScreenState extends State<PenerimaanWargaScreen> {
               floating: true,
               pinned: true,
               expandedHeight: 0, // No expansion needed for this screen
+              
+              // Tombol Kembali (Contoh Routing ke 'aspirasi')
+              leading: IconButton(
+                icon: const Icon(Icons.arrow_back, color: AppTheme.offWhite),
+                onPressed: () {
+                  // Menggunakan GoRouter untuk navigasi ke route 'aspirasi'
+                  context.goNamed('aspirasi'); 
+                },
+              ),
             ),
             SliverToBoxAdapter(
               child: Padding(
