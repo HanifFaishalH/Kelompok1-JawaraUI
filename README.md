@@ -1,16 +1,23 @@
-# jawaramobile_1
+# JawaraMobile_1
 
-A new Flutter project.
+## Tim Kelompok 1
+| Team Member          | NIM        |Kontribusi                                                                                                                      |
+| :------------------- | :--------- | :-------------------------------------------------------------------------------------------------------------------------- |
+| Adani Salsabila | 2341720123 | ---------           |
+| Dio Andika Pradana Mulia Tama    | 2341720098 | --------- |
+| Gabriel Batavia Xaverius | 2341720184 | ---------                     |
+| Hanif Faisal Hilmi  | 2341720116 | Dashboard Homescreen               |
+| Muhammad Nur Aziz  | 2341720237 | Login, Register Page              |
 
-## Getting Started
+## Link Figma
+| Link                 | Address                                                                             |
+| :------------------- | :-----------------------------------------------------------------------------------|
+|Figma: |https://www.figma.com/design/0rceSmNwifPND3FlxoFGlB/JawaraUI?node-id=0-1&t=uY5i96tKoCV2tCgA-1|
+## Tampilan JawaraMobile
 
-This project is a starting point for a Flutter application.
+### Login Page
 
-A few resources to get you started if this is your first Flutter project:
+### Register Page
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### Dashboard Homescreen
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
