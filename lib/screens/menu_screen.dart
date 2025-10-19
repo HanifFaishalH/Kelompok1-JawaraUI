@@ -28,7 +28,7 @@ class MenuScreen extends StatelessWidget {
       {
         'icon': Icons.event_note,
         'title': 'Kegiatan',
-        'action': showFeatureNotReady,
+        'action': () => context.push('/kegiatan'),
       },
       {
         'icon': Icons.home_work,

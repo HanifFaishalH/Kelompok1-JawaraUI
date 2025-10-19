@@ -15,6 +15,10 @@ import 'package:jawaramobile_1/screens/LaporanKeuangan/semua_pemasukan.dart';
 import 'package:jawaramobile_1/screens/LaporanKeuangan/detail_pemasukan.dart';
 import 'package:jawaramobile_1/screens/LaporanKeuangan/cetak_laporan_screen.dart';
 import 'package:jawaramobile_1/screens/penerimaan_warga_screen.dart';
+import 'package:jawaramobile_1/screens/kegiatan/daftar_kegiatan.dart';
+import 'package:jawaramobile_1/screens/kegiatan/tambah_kegiatan.dart';
+import 'package:jawaramobile_1/screens/Kegiatan/detail_kegiatan.dart';
+import 'package:jawaramobile_1/screens/Kegiatan/edit_kegiatan.dart';
 
 final appRouter = GoRouter(
   initialLocation: '/login',
@@ -114,6 +118,32 @@ final appRouter = GoRouter(
       path: '/penerimaan-warga',
       name: 'penerimaan-warga',
       builder: (context, state) => const PenerimaanWargaScreen(),
+    ),
+    GoRoute(
+      path: '/kegiatan',
+      name: 'kegiatan',
+      builder: (context, state) => const KegiatanScreen(),
+    ),
+    GoRoute(
+      path: '/tambah-kegiatan',
+      name: 'tambah-kegiatan',
+      builder: (context, state) => const TambahKegiatanScreen(),
+    ),
+    GoRoute(
+      path: '/detail-kegiatan',
+      name: 'detail-kegiatan',
+      builder: (context, state) {
+        final data = state.extra as Map<String, String>;
+        return DetailKegiatanScreen(kegiatanData: data);
+      },
+    ),
+    GoRoute(
+      path: '/edit-kegiatan',
+      name: 'edit-kegiatan',
+      builder: (context, state) {
+        final data = state.extra as Map<String, String>;
+        return EditKegiatanScreen(kegiatanData: data);
+      },
     ),
   ],
 );
