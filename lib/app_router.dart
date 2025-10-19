@@ -11,6 +11,7 @@ import 'package:jawaramobile_1/screens/LaporanKeuangan/detail_pengeluaran.dart';
 import 'package:jawaramobile_1/screens/LaporanKeuangan/semua_pemasukan.dart';
 import 'package:jawaramobile_1/screens/LaporanKeuangan/detail_pemasukan.dart';
 import 'package:jawaramobile_1/screens/LaporanKeuangan/cetak_laporan_screen.dart';
+import 'package:jawaramobile_1/screens/penerimaan_warga_screen.dart';
 
 final appRouter = GoRouter(
   initialLocation: '/login',

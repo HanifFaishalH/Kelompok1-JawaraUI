@@ -21,14 +21,14 @@ class DetailPemasukan extends StatelessWidget {
         children: [
           Text(
             label,
-            style: theme.textTheme.bodyLarge?.copyWith(color: Colors.grey[600]),
+            style: theme.textTheme.bodyLarge?.copyWith(color: Colors.grey[900]),
           ),
           Text(
             value,
             style: theme.textTheme.bodyLarge?.copyWith(
               fontWeight: FontWeight.bold,
               color: isNominal
-                  ? theme.colorScheme.error
+                  ? Colors.green[700]
                   : theme.colorScheme.onSurface,
             ),
           ),

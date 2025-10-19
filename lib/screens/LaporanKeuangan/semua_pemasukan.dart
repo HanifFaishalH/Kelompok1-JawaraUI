@@ -114,7 +114,7 @@ class Pemasukan extends StatelessWidget {
                     Text(
                       item['nominal']!,
                       style: TextStyle(
-                        color: theme.colorScheme.error,
+                        color: Colors.green[700],
                         fontWeight: FontWeight.bold,
                       ),
                     ),

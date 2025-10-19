@@ -21,7 +21,7 @@ class DetailPengeluaran extends StatelessWidget {
         children: [
           Text(
             label,
-            style: theme.textTheme.bodyLarge?.copyWith(color: Colors.grey[600]),
+            style: theme.textTheme.bodyLarge?.copyWith(color: Colors.grey[900]),
           ),
           Text(
             value,

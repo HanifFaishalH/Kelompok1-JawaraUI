@@ -2,13 +2,13 @@
 
 ## Tim Kelompok 1
 
-| Team Member                   | NIM        | Kontribusi           |
-| :---------------------------- | :--------- | :------------------- |
-| Adani Salsabila               | 2341720123 | ---------            |
-| Dio Andika Pradana Mulia Tama | 2341720098 | Menu Pengeluaran     |
-| Gabriel Batavia Xaverius      | 2341720184 | ---------            |
-| Hanif Faisal Hilmi            | 2341720116 | Dashboard Homescreen |
-| Muhammad Nur Aziz             | 2341720237 | Login, Register Page |
+| Team Member                   | NIM        | Kontribusi                         |
+| :---------------------------- | :--------- | :--------------------------------- |
+| Adani Salsabila               | 2341720123 | ---------                          |
+| Dio Andika Pradana Mulia Tama | 2341720098 | Menu Pengeluaran, Laporan Keuangan |
+| Gabriel Batavia Xaverius      | 2341720184 | ---------                          |
+| Hanif Faisal Hilmi            | 2341720116 | Dashboard Homescreen               |
+| Muhammad Nur Aziz             | 2341720237 | Login, Register Page               |
 
 ## Link Figma
 
