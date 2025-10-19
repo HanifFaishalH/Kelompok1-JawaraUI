@@ -87,5 +87,10 @@ final appRouter = GoRouter(
       name: 'cetak-laporan',
       builder: (context, state) => const CetakLaporanScreen(),
     ),
+    GoRoute(
+      path: '/penerimaan-warga',
+      name: 'penerimaan-warga',
+      builder: (context, state) => const PenerimaanWargaScreen(),
+    ),
   ],
 );
