@@ -53,7 +53,7 @@ class _CetakLaporanFormState extends State<CetakLaporanForm> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final fillColor = theme.colorScheme.surface;
+    final fillColor = theme.colorScheme.primary.withOpacity(0.05);
 
     return Form(
       key: _formKey,
