@@ -2,6 +2,7 @@ import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:jawaramobile_1/widgets/pengeluaran_filter.dart';
+import '../../widgets/bottom_navbar.dart';
 
 class PengeluaranScreen extends StatelessWidget {
   const PengeluaranScreen({super.key});
@@ -108,7 +109,10 @@ class PengeluaranScreen extends StatelessWidget {
               DataColumn2(label: Text('Jenis')),
               DataColumn2(label: Text('Tanggal')),
               DataColumn2(label: Text('Nominal'), numeric: true),
-              DataColumn2(label: Text('Aksi'), size: ColumnSize.L),
+              DataColumn2(
+                label: Center(child: Text('Aksi')),
+                size: ColumnSize.L,
+              ),
             ],
             rows: _pengeluaranData.map((item) {
               return DataRow(
@@ -132,19 +136,13 @@ class PengeluaranScreen extends StatelessWidget {
                       children: [
                         IconButton(
                           icon: Icon(
-                            Icons.edit,
+                            Icons.remove_red_eye,
                             size: 20,
                             color: theme.colorScheme.primary,
                           ),
-                          onPressed: () {},
-                        ),
-                        IconButton(
-                          icon: Icon(
-                            Icons.delete,
-                            size: 20,
-                            color: theme.colorScheme.error,
-                          ),
-                          onPressed: () {},
+                          onPressed: () {
+                            context.push('/detail-pengeluaran', extra: item);
+                          },
                         ),
                       ],
                     ),
