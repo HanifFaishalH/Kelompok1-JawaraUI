@@ -1,8 +1,11 @@
 import 'package:go_router/go_router.dart';
+import 'package:jawaramobile_1/screens/Pemasukan/detail_kategori_iuran.dart';
+import 'package:jawaramobile_1/screens/Pemasukan/kategori_iuran.dart';
 import 'package:jawaramobile_1/screens/dashboard_screen.dart';
 import 'package:jawaramobile_1/screens/login_screens.dart';
 import 'package:jawaramobile_1/screens/register_screens.dart';
 import 'package:jawaramobile_1/screens/menu_screen.dart';
+import 'package:jawaramobile_1/screens/Pemasukan/menu_pemasukan.dart';
 import 'package:jawaramobile_1/screens/pengeluaran/pengeluaran_screen.dart';
 import 'package:jawaramobile_1/screens/pengeluaran/tambah_pengeluaran_screen.dart';
 import 'package:jawaramobile_1/screens/pengeluaran/detail_pengeluaran_screen.dart';
@@ -35,6 +38,25 @@ final appRouter = GoRouter(
       path: '/menu',
       name: 'menu',
       builder: (context, state) => const MenuScreen(),
+    ),
+    GoRoute(
+      path: '/menu-pemasukan',
+      name: 'menu-pemasukan',
+      builder: (context, state) => const MenuPemasukan(),
+    ),
+    GoRoute(
+      path: '/kategori-iuran',
+      name: 'kategori-iuran',
+      builder: (context, state) => const KategoriIuran(),
+    ),
+    GoRoute(
+      path: '/detail-kategori',
+      name: 'detail-kategori',
+      builder: (context, state) {
+        // Ambil data yang dikirimkan melalui 'extra'
+        final data = state.extra as Map<String, String>;
+        return DetailKategoriIuran(kategoriData: data);
+      },
     ),
     GoRoute(
       path: '/pengeluaran',

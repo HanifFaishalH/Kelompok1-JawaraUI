@@ -38,7 +38,7 @@ class MenuScreen extends StatelessWidget {
       {
         'icon': Icons.account_balance_wallet,
         'title': 'Pemasukan',
-        'action': showFeatureNotReady,
+        'action': () => context.push('/menu-pemasukan'),
       },
       {
         'icon': Icons.monetization_on,
