@@ -1,27 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-class PengeluaranFilter extends StatefulWidget {
-  const PengeluaranFilter({super.key});
+class PemasukanFilter extends StatefulWidget {
+  const PemasukanFilter({super.key});
 
   @override
-  State<PengeluaranFilter> createState() => _PengeluaranFilterState();
+  State<PemasukanFilter> createState() => _PemasukanFilterState();
 }
 
-class _PengeluaranFilterState extends State<PengeluaranFilter> {
+class _PemasukanFilterState extends State<PemasukanFilter> {
   String? selectedKategori;
   final TextEditingController _dariTanggalController = TextEditingController();
   final TextEditingController _sampaiTanggalController =
       TextEditingController();
 
   final List<String> kategori = [
-    'Operasional RT/RW',
-    'Kegiatan Sosial',
-    'Pemeliharaan Fasilitas',
-    'Pembangunan',
-    'Kegiatan Warga',
-    'Keamanan & Kebersihan',
-    'Lain-lain',
+    'Iuran Warga',
+    'Donasi',
+    'Dana Bantuan Pemerintah',
+    'Sumbangan Swadaya',
+    'Hasil Usaha Kampung',
+    'Pendapatan Lainnya',
   ];
 
   Future<void> _selectDate(

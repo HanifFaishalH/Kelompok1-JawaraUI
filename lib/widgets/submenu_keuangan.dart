@@ -17,14 +17,9 @@ void showSubMenuKeuangan(BuildContext context) {
               title: const Text("Semua Pemasukan"),
               onTap: () {
                 Navigator.of(dialogContext).pop(); // Tutup dialog dulu
-                // TODO: Ganti notifikasi ini dengan navigasi jika halaman sudah dibuat
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(
-                    content: Text(
-                      'Fitur "Semua Pemasukan" sedang dikembangkan',
-                    ),
-                  ),
-                );
+                context.push(
+                  '/semua-pemasukan',
+                ); // Navigasi ke halaman pemasukan
               },
             ),
             ListTile(
