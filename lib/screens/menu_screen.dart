@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:jawaramobile_1/widgets/submenu_keuangan.dart';
 
 class MenuScreen extends StatelessWidget {
   const MenuScreen({super.key});
@@ -8,51 +9,82 @@ class MenuScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
+    // Fungsi helper untuk fitur yang belum siap
+    void showFeatureNotReady() {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Fitur ini sedang dalam pengembangan'),
+          duration: Duration(seconds: 2),
+        ),
+      );
+    }
+
     final List<Map<String, dynamic>> menuItems = [
-      {'icon': Icons.dashboard, 'title': 'Dashboard', 'route': '/dashboard'},
-      {'icon': Icons.event_note, 'title': 'Kegiatan', 'route': '/kegiatan'},
+      {
+        'icon': Icons.dashboard,
+        'title': 'Dashboard',
+        'action': showFeatureNotReady,
+      },
+      {
+        'icon': Icons.event_note,
+        'title': 'Kegiatan',
+        'action': showFeatureNotReady,
+      },
       {
         'icon': Icons.home_work,
         'title': 'Data Warga & Rumah',
-        'route': '/data-warga',
+        'action': () => context.push('/data-warga-rumah'),
       },
       {
         'icon': Icons.account_balance_wallet,
         'title': 'Pemasukan',
-        'route': '/pemasukan',
+        'action': showFeatureNotReady,
       },
       {
         'icon': Icons.monetization_on,
         'title': 'Pengeluaran',
-        'route': '/pengeluaran',
+        'action': () => context.push('/pengeluaran'),
       },
       {
         'icon': Icons.assessment,
         'title': 'Laporan Keuangan',
-        'route': '/laporan',
+        'action': () =>
+            showSubMenuKeuangan(context), // Panggil fungsi dengan context
       },
-      {'icon': Icons.campaign, 'title': 'Broadcast', 'route': '/broadcast'},
-      {'icon': Icons.chat_bubble, 'title': 'Pesan Warga', 'route': '/pesan'},
+      {
+        'icon': Icons.campaign,
+        'title': 'Broadcast',
+        'action': showFeatureNotReady,
+      },
+      {
+        'icon': Icons.chat_bubble,
+        'title': 'Pesan Warga',
+        'action': showFeatureNotReady,
+      },
       {
         'icon': Icons.person_add_alt_1,
         'title': 'Penerimaan Warga',
-        'route': '/penerimaan-warga',
+        'action': showFeatureNotReady,
       },
       {
         'icon': Icons.switch_account,
         'title': 'Mutasi Keluarga',
-        'route': '/mutasi',
+        'action': () => context.push('/mutasi'),
       },
-      {'icon': Icons.history, 'title': 'Log Aktifitas', 'route': '/log'},
+      {
+        'icon': Icons.history,
+        'title': 'Log Aktifitas',
+        'action': showFeatureNotReady,
+      },
       {
         'icon': Icons.manage_accounts,
         'title': 'Manajemen Pengguna',
-        'route': '/manajemen-pengguna',
+        'action': () => context.push('/manajemen-pengguna'),
       },
       {
         'icon': Icons.wallet,
         'title': 'Channel Transfer',
-        'route': '/channel-transfer',
+        'action': () => context.push('/channel-transfer'),
       },
     ];
 
@@ -71,16 +103,8 @@ class MenuScreen extends StatelessWidget {
       ),
       body: Container(
         height: double.infinity,
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [
-              theme.colorScheme.primary.withOpacity(0.1),
-              theme.colorScheme.background,
-            ],
-          ),
-        ),
+        color: Colors.white,
+        // decoration: BoxDecoration(color: Colors.white.withOpacity(0.9)),
         child: GridView.builder(
           padding: const EdgeInsets.all(20),
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -96,9 +120,7 @@ class MenuScreen extends StatelessWidget {
               context,
               icon: item['icon'],
               title: item['title'],
-              onTap: () {
-                context.push(item['route']);
-              },
+              onTap: item['action'],
             );
           },
         ),
