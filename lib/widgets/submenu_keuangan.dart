@@ -13,7 +13,7 @@ void showSubMenuKeuangan(BuildContext context) {
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             ListTile(
-              leading: const Icon(Icons.arrow_circle_down_outlined),
+              leading: const Icon(Icons.account_balance_wallet_outlined),
               title: const Text("Semua Pemasukan"),
               onTap: () {
                 Navigator.of(dialogContext).pop(); // Tutup dialog dulu
@@ -23,7 +23,7 @@ void showSubMenuKeuangan(BuildContext context) {
               },
             ),
             ListTile(
-              leading: const Icon(Icons.arrow_circle_up_outlined),
+              leading: const Icon(Icons.monetization_on_outlined),
               title: const Text("Semua Pengeluaran"),
               onTap: () {
                 Navigator.of(dialogContext).pop(); // Tutup dialog dulu
@@ -36,13 +36,8 @@ void showSubMenuKeuangan(BuildContext context) {
               leading: const Icon(Icons.print_outlined),
               title: const Text("Cetak Laporan"),
               onTap: () {
-                Navigator.of(dialogContext).pop(); // Tutup dialog dulu
-                // TODO: Ganti notifikasi ini dengan logika cetak
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(
-                    content: Text('Fitur "Cetak Laporan" sedang dikembangkan'),
-                  ),
-                );
+                Navigator.of(dialogContext).pop();
+                context.push('/cetak-laporan');
               },
             ),
           ],
