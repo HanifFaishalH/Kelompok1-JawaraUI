@@ -33,7 +33,6 @@ import 'package:jawaramobile_1/screens/Kegiatan/edit_kegiatan.dart';
 
 // ====== Lainnya ======
 import 'package:jawaramobile_1/screens/penerimaan_warga_screen.dart';
-import 'package:jawaramobile_1/widgets/menu_popup.dart';
 
 final appRouter = GoRouter(
   initialLocation: '/login',
