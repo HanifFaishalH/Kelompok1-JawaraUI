@@ -20,7 +20,7 @@ class _MenuPemasukanState extends State<MenuPemasukan> {
         foregroundColor: Colors.white,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
-          onPressed: () => context.go('/menu'),
+          onPressed: () => context.go('/dashboard'),
         ),
       ),
       // Aktifkan agar body bisa “tembus” ke bawah navigation bar yang melayang
