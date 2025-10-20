@@ -55,12 +55,6 @@ final appRouter = GoRouter(
       name: 'dashboard',
       builder: (context, state) => const DashboardScreen(),
     ),
-    GoRoute(
-      path: '/menu',
-      name: 'menu',
-      builder: (context, state) => const MenuScreen(),
-    ),
-
     // ====== Popup Menu ======
     GoRoute(
       path: '/menu-popup',
