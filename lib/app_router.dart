@@ -1,48 +1,87 @@
+import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:jawaramobile_1/screens/Pemasukan/detail_kategori_iuran.dart';
-import 'package:jawaramobile_1/screens/Pemasukan/kategori_iuran.dart';
-import 'package:jawaramobile_1/screens/dashboard_screen.dart';
+
+// ====== Screens Utama ======
 import 'package:jawaramobile_1/screens/login_screens.dart';
 import 'package:jawaramobile_1/screens/register_screens.dart';
+import 'package:jawaramobile_1/screens/dashboard_screen.dart';
 import 'package:jawaramobile_1/screens/menu_screen.dart';
+import 'package:jawaramobile_1/screens/data_warga_rumah.dart';
+
+// ====== Pemasukan ======
 import 'package:jawaramobile_1/screens/Pemasukan/menu_pemasukan.dart';
+import 'package:jawaramobile_1/screens/Pemasukan/kategori_iuran.dart';
+import 'package:jawaramobile_1/screens/Pemasukan/detail_kategori_iuran.dart';
+
+// ====== Pengeluaran ======
 import 'package:jawaramobile_1/screens/pengeluaran/pengeluaran_screen.dart';
 import 'package:jawaramobile_1/screens/pengeluaran/tambah_pengeluaran_screen.dart';
 import 'package:jawaramobile_1/screens/pengeluaran/detail_pengeluaran_screen.dart';
+
+// ====== Laporan Keuangan ======
 import 'package:jawaramobile_1/screens/LaporanKeuangan/semua_pengeluaran.dart';
 import 'package:jawaramobile_1/screens/LaporanKeuangan/detail_pengeluaran.dart';
 import 'package:jawaramobile_1/screens/LaporanKeuangan/semua_pemasukan.dart';
 import 'package:jawaramobile_1/screens/LaporanKeuangan/detail_pemasukan.dart';
 import 'package:jawaramobile_1/screens/LaporanKeuangan/cetak_laporan_screen.dart';
-import 'package:jawaramobile_1/screens/penerimaan_warga_screen.dart';
+
+// ====== Kegiatan ======
 import 'package:jawaramobile_1/screens/kegiatan/daftar_kegiatan.dart';
 import 'package:jawaramobile_1/screens/kegiatan/tambah_kegiatan.dart';
 import 'package:jawaramobile_1/screens/Kegiatan/detail_kegiatan.dart';
 import 'package:jawaramobile_1/screens/Kegiatan/edit_kegiatan.dart';
 
+// ====== Lainnya ======
+import 'package:jawaramobile_1/screens/penerimaan_warga_screen.dart';
+import 'package:jawaramobile_1/widgets/menu_popup.dart';
+
 final appRouter = GoRouter(
   initialLocation: '/login',
   routes: <GoRoute>[
+    // ====== Autentikasi ======
     GoRoute(
       path: '/login',
       name: 'login',
       builder: (context, state) => const LoginPage(),
     ),
     GoRoute(
-      path: '/dashboard',
-      name: 'dashboard',
-      builder: (context, state) => const DashboardScreen(),
-    ),
-    GoRoute(
       path: '/register',
       name: 'register',
       builder: (context, state) => const RegisterScreens(),
+    ),
+
+    // ====== Dashboard & Menu ======
+    GoRoute(
+      path: '/dashboard',
+      name: 'dashboard',
+      builder: (context, state) => const DashboardScreen(),
     ),
     GoRoute(
       path: '/menu',
       name: 'menu',
       builder: (context, state) => const MenuScreen(),
     ),
+
+    // ====== Popup Menu ======
+    GoRoute(
+      path: '/menu-popup',
+      name: 'menu-popup',
+      builder: (context, state) => Scaffold(
+        backgroundColor: Colors.black.withOpacity(0.5),
+        body: Center(
+
+        ),
+      ),
+    ),
+
+    // ====== Data Warga ======
+    GoRoute(
+      path: '/data-warga-rumah',
+      name: 'data-warga-rumah',
+      builder: (context, state) => const DataWargaPage(),
+    ),
+
+    // ====== Pemasukan ======
     GoRoute(
       path: '/menu-pemasukan',
       name: 'menu-pemasukan',
@@ -57,11 +96,12 @@ final appRouter = GoRouter(
       path: '/detail-kategori',
       name: 'detail-kategori',
       builder: (context, state) {
-        // Ambil data yang dikirimkan melalui 'extra'
         final data = state.extra as Map<String, String>;
         return DetailKategoriIuran(kategoriData: data);
       },
     ),
+
+    // ====== Pengeluaran ======
     GoRoute(
       path: '/pengeluaran',
       name: 'pengeluaran',
@@ -76,11 +116,12 @@ final appRouter = GoRouter(
       path: '/detail-pengeluaran',
       name: 'detail-pengeluaran',
       builder: (context, state) {
-        // Ambil data yang dikirimkan melalui 'extra'
         final data = state.extra as Map<String, String>;
         return DetailPengeluaranScreen(pengeluaranData: data);
       },
     ),
+
+    // ====== Laporan Keuangan ======
     GoRoute(
       path: '/semua-pengeluaran',
       name: 'semua-pengeluaran',
@@ -90,7 +131,6 @@ final appRouter = GoRouter(
       path: '/detail-pengeluaran-all',
       name: 'detail-pengeluaran-all',
       builder: (context, state) {
-        // Ambil data yang dikirimkan melalui 'extra'
         final data = state.extra as Map<String, String>;
         return DetailPengeluaran(pengeluaranData: data);
       },
@@ -104,7 +144,6 @@ final appRouter = GoRouter(
       path: '/detail-pemasukan-all',
       name: 'detail-pemasukan-all',
       builder: (context, state) {
-        // Ambil data yang dikirimkan melalui 'extra'
         final data = state.extra as Map<String, String>;
         return DetailPemasukan(pemasukanData: data);
       },
@@ -114,11 +153,8 @@ final appRouter = GoRouter(
       name: 'cetak-laporan',
       builder: (context, state) => const CetakLaporanScreen(),
     ),
-    GoRoute(
-      path: '/penerimaan-warga',
-      name: 'penerimaan-warga',
-      builder: (context, state) => const PenerimaanWargaScreen(),
-    ),
+
+    // ====== Kegiatan ======
     GoRoute(
       path: '/kegiatan',
       name: 'kegiatan',
@@ -144,6 +180,13 @@ final appRouter = GoRouter(
         final data = state.extra as Map<String, String>;
         return EditKegiatanScreen(kegiatanData: data);
       },
+    ),
+
+    // ====== Lain-lain ======
+    GoRoute(
+      path: '/penerimaan-warga',
+      name: 'penerimaan-warga',
+      builder: (context, state) => const PenerimaanWargaScreen(),
     ),
   ],
 );

@@ -1,158 +1,142 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
+import 'package:jawaramobile_1/widgets/submenu_keuangan.dart';
 
-class MenuPopUp extends StatefulWidget {
-  final VoidCallback onClose;
+void showMenuPopUp(BuildContext context) {
+  showGeneralDialog(
+    context: context,
+    barrierDismissible: true,
+    barrierLabel: '',
+    barrierColor: Colors.black.withOpacity(0.3),
+    transitionDuration: const Duration(milliseconds: 300),
+    pageBuilder: (context, anim1, anim2) {
+      return const SizedBox.shrink(); // Tidak perlu isi di sini
+    },
+    transitionBuilder: (context, anim, secondaryAnim, child) {
+      final offsetAnim = Tween<Offset>(
+        begin: const Offset(0, 1),
+        end: Offset.zero,
+      ).animate(CurvedAnimation(
+        parent: anim,
+        curve: Curves.easeOutCubic,
+      ));
 
-  const MenuPopUp({super.key, required this.onClose});
-
-  @override
-  State<MenuPopUp> createState() => _MenuPopUpState();
+      return SlideTransition(
+        position: offsetAnim,
+        child: Align(
+          alignment: Alignment.bottomCenter,
+          child: Padding(
+            padding: const EdgeInsets.only(bottom: 70, left: 16, right: 16),
+            child: _MenuPopUpContent(parentContext: context),
+          ),
+        ),
+      );
+    },
+  );
 }
 
-class _MenuPopUpState extends State<MenuPopUp> with SingleTickerProviderStateMixin {
-  late AnimationController _controller;
-  late Animation<Offset> _offsetAnimation;
+class _MenuPopUpContent extends StatelessWidget {
+  final BuildContext parentContext;
 
-  final listMenu = [
-    {'icon': FontAwesomeIcons.chartPie, 'label': 'Dashboard'},
-    {'icon': FontAwesomeIcons.wallet, 'label': 'Keuangan'},
-    {'icon': FontAwesomeIcons.calendarDays, 'label': 'Kegiatan'},
-    {'icon': FontAwesomeIcons.idCard, 'label': 'Kependudukan'},
-    {
-      'icon': FontAwesomeIcons.houseUser,
-      'label': 'Data Warga & Rumah',
-      'route': '/dataWargadanRumah'
-    },
-    {'icon': FontAwesomeIcons.moneyBillTransfer, 'label': 'Pemasukan'},
-    {'icon': FontAwesomeIcons.moneyBillTrendUp, 'label': 'Pengeluaran'},
-    {'icon': FontAwesomeIcons.fileInvoiceDollar, 'label': 'Laporan Keuangan'},
-    {'icon': FontAwesomeIcons.solidCalendarCheck, 'label': 'Kegiatan & Broadcast'},
-    {'icon': FontAwesomeIcons.solidMessage, 'label': 'Pesan Warga'},
-    {'icon': FontAwesomeIcons.personCircleCheck, 'label': 'Penerimaan Warga'},
-    {'icon': FontAwesomeIcons.peopleArrows, 'label': 'Mutasi Keluarga'},
-    {'icon': FontAwesomeIcons.clockRotateLeft, 'label': 'Log Aktivitas'},
-    {'icon': FontAwesomeIcons.usersGear, 'label': 'Manajemen Pengguna'},
-    {'icon': FontAwesomeIcons.rightLeft, 'label': 'Channel Transfer'},
-  ];
+  const _MenuPopUpContent({required this.parentContext});
 
-  @override
-  void initState() {
-    super.initState();
-    _controller = AnimationController(
-      vsync: this,
-      duration: const Duration(milliseconds: 300),
+  void showFeatureNotReady(BuildContext context) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text('Fitur ini sedang dalam pengembangan'),
+        duration: Duration(seconds: 2),
+      ),
     );
-
-    _offsetAnimation = Tween<Offset>(
-      begin: const Offset(0, 1), // mulai dari bawah
-      end: const Offset(0, 0),   // ke posisi normal
-    ).animate(CurvedAnimation(
-      parent: _controller,
-      curve: Curves.easeOutCubic,
-    ));
-
-    _controller.forward();
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
+    final theme = Theme.of(context);
 
-    return Stack(
-      children: [
-        // Background transparan untuk menutup popup
-        GestureDetector(
-          onTap: () {
-            _controller.reverse().then((_) => widget.onClose());
-          },
-          child: Container(
-            color: Colors.black.withOpacity(0.25),
-          ),
+    final List<Map<String, dynamic>> menuItems = [
+      {'icon': Icons.dashboard, 'title': 'Dashboard', 'action': () => showFeatureNotReady(context)},
+      {'icon': Icons.event_note, 'title': 'Kegiatan', 'action': () => context.push('/kegiatan')},
+      {'icon': Icons.home_work, 'title': 'Data Warga & Rumah', 'action': () => context.push('/data-warga-rumah')},
+      {'icon': Icons.account_balance_wallet, 'title': 'Pemasukan', 'action': () => context.push('/menu-pemasukan')},
+      {'icon': Icons.monetization_on, 'title': 'Pengeluaran', 'action': () => context.push('/pengeluaran')},
+      {'icon': Icons.assessment, 'title': 'Laporan Keuangan', 'action': () => showSubMenuKeuangan(context)},
+      {'icon': Icons.campaign, 'title': 'Broadcast', 'action': () => showFeatureNotReady(context)},
+      {'icon': Icons.chat_bubble, 'title': 'Pesan Warga', 'action': () => showFeatureNotReady(context)},
+      {'icon': Icons.person_add_alt_1, 'title': 'Penerimaan Warga', 'action': () => showFeatureNotReady(context)},
+      {'icon': Icons.switch_account, 'title': 'Mutasi Keluarga', 'action': () => context.push('/mutasi')},
+      {'icon': Icons.history, 'title': 'Log Aktifitas', 'action': () => showFeatureNotReady(context)},
+      {'icon': Icons.manage_accounts, 'title': 'Manajemen Pengguna', 'action': () => context.push('/manajemen-pengguna')},
+      {'icon': Icons.wallet, 'title': 'Channel Transfer', 'action': () => context.push('/channel-transfer')},
+    ];
+
+    return Material(
+      color: Colors.transparent,
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(24),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.15),
+              blurRadius: 10,
+              offset: const Offset(0, -3),
+            ),
+          ],
         ),
-
-        // Menu muncul dari belakang bottom navbar
-        Positioned(
-          left: 0,
-          right: 0,
-          bottom: 70, // posisinya pas di belakang bottom navbar
-          child: SlideTransition(
-            position: _offsetAnimation,
-            child: Padding(
-              padding: const EdgeInsets.all(16.0),
+        child: GridView.builder(
+          padding: const EdgeInsets.all(20),
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          itemCount: menuItems.length,
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 3,
+            crossAxisSpacing: 16,
+            mainAxisSpacing: 16,
+            childAspectRatio: 0.9,
+          ),
+          itemBuilder: (context, index) {
+            final item = menuItems[index];
+            return InkWell(
+              onTap: () {
+                Navigator.pop(context); // Tutup popup dulu
+                Future.delayed(const Duration(milliseconds: 100), () {
+                  item['action']();
+                });
+              },
+              borderRadius: BorderRadius.circular(12),
               child: Container(
                 decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(24),
+                  color: theme.colorScheme.surface,
+                  borderRadius: BorderRadius.circular(12),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.1),
-                      blurRadius: 10,
-                      offset: const Offset(0, -2),
+                      color: Colors.black.withOpacity(0.05),
+                      spreadRadius: 1,
+                      blurRadius: 5,
+                      offset: const Offset(0, 3),
                     ),
                   ],
                 ),
-                child: GridView.builder(
-                  padding: const EdgeInsets.all(16),
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  itemCount: listMenu.length,
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 3,
-                    mainAxisSpacing: 12,
-                    crossAxisSpacing: 12,
-                    childAspectRatio: 0.9,
-                  ),
-                  itemBuilder: (context, index) {
-                    final menu = listMenu[index];
-                    return Material(
-                      color: Colors.transparent,
-                      child: InkWell(
-                        borderRadius: BorderRadius.circular(16),
-                        onTap: () {
-                          _controller.reverse().then((_) => widget.onClose());
-
-                          final route = menu['route'] as String?;
-                          if (route != null && route.isNotEmpty) {
-                            context.go(route);
-                          }
-                        },
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            FaIcon(
-                              menu['icon'] as IconData,
-                              color: colorScheme.primary,
-                              size: 28,
-                            ),
-                            const SizedBox(height: 8),
-                            Text(
-                              menu['label'] as String,
-                              style: TextStyle(
-                                color: colorScheme.onSurface,
-                                fontWeight: FontWeight.w600,
-                                fontSize: 13,
-                              ),
-                              textAlign: TextAlign.center,
-                            ),
-                          ],
-                        ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(item['icon'], size: 36, color: theme.colorScheme.primary),
+                    const SizedBox(height: 12),
+                    Text(
+                      item['title'],
+                      textAlign: TextAlign.center,
+                      style: theme.textTheme.bodyMedium?.copyWith(
+                        color: theme.colorScheme.onSurface,
+                        fontWeight: FontWeight.w600,
                       ),
-                    );
-                  },
+                    ),
+                  ],
                 ),
               ),
-            ),
-          ),
+            );
+          },
         ),
-      ],
+      ),
     );
   }
 }

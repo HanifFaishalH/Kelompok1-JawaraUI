@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
+import 'package:jawaramobile_1/widgets/menu_popup.dart'; // ⬅️ Tambahkan ini
 
 class BottomNavbar extends StatefulWidget {
   const BottomNavbar({super.key});
@@ -10,15 +11,13 @@ class BottomNavbar extends StatefulWidget {
 }
 
 class _BottomNavbarState extends State<BottomNavbar> {
-  // Fungsi ini menentukan tab mana yang aktif berdasarkan rute saat ini.
   int _calculateSelectedIndex(BuildContext context) {
     final String location = GoRouterState.of(context).uri.toString();
     if (location.startsWith('/dashboard')) return 0;
     if (location.startsWith('/laporan')) return 1;
-    // Saat di halaman menu, kita tetap ingin 'Menu' yang aktif.
     if (location.startsWith('/menu')) return 2;
     if (location.startsWith('/pengguna')) return 3;
-    return 0; // Default ke Home
+    return 0;
   }
 
   void _onItemTapped(int index) {
@@ -27,15 +26,13 @@ class _BottomNavbarState extends State<BottomNavbar> {
         context.go('/dashboard');
         break;
       case 1:
-        // TODO: Navigasi ke halaman Laporan
-        // context.go('/laporan');
+      // laporan
         break;
       case 2:
-        context.push('/menu');
+        showMenuPopUp(context); // ✅ ganti ini
         break;
       case 3:
-        // TODO: Navigasi ke halaman Pengguna
-        // context.go('/pengguna');
+      // pengguna
         break;
     }
   }
@@ -58,12 +55,10 @@ class _BottomNavbarState extends State<BottomNavbar> {
       unselectedItemColor: colorScheme.onSurface.withOpacity(0.5),
       backgroundColor: colorScheme.surface,
       items: items
-          .map(
-            (e) => BottomNavigationBarItem(
-              icon: FaIcon(e['icon'] as IconData),
-              label: e['label'] as String,
-            ),
-          )
+          .map((e) => BottomNavigationBarItem(
+        icon: FaIcon(e['icon'] as IconData),
+        label: e['label'] as String,
+      ))
           .toList(),
     );
   }
