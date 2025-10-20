@@ -89,10 +89,20 @@ class Pengeluaran extends StatelessWidget {
         ],
       ),
       body: Container(
+        margin: const EdgeInsets.all(16),
         height: double.infinity,
         width: double.infinity,
-        decoration: BoxDecoration(color: Colors.white.withOpacity(0.9)),
-        // Body sekarang hanya berisi tabel
+        decoration: BoxDecoration(
+          color: Colors.white.withOpacity(0.95),
+          borderRadius: BorderRadius.circular(16),
+          boxShadow: const [
+            BoxShadow(
+              color: Colors.black12,
+              blurRadius: 8,
+              offset: Offset(0, 4),
+            ),
+          ],
+        ),
         child: Padding(
           padding: const EdgeInsets.all(16),
           child: DataTable2(
