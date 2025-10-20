@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import '../widgets/login_header.dart';
-import '../widgets/register_form.dart';
-import '../widgets/login_google_button.dart';
+import '../../widgets/auth/login_header.dart';
+import '../../widgets/auth/register_form.dart';
+import '../../widgets/auth/login_google_button.dart';
 
 class RegisterScreens extends StatefulWidget {
   const RegisterScreens({super.key});

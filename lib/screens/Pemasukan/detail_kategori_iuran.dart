@@ -40,17 +40,16 @@ class DetailKategoriIuran extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final colorScheme = Theme.of(context).colorScheme;
 
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.deepPurple,
+        backgroundColor: colorScheme.primary,
         elevation: 0,
         title: Text(
           "Detail Kategori iuran",
-          style: theme.textTheme.titleLarge?.copyWith(
-            color: theme.colorScheme.onPrimary,
-          ),
+          style: theme.textTheme.titleLarge?.copyWith(color: Colors.white),
         ),
         iconTheme: IconThemeData(color: theme.colorScheme.onPrimary),
       ),
@@ -74,13 +73,13 @@ class DetailKategoriIuran extends StatelessWidget {
                     children: [
                       _buildDetailRow(
                         context,
-                        "Nama Pemasukan",
+                        "Nama Iuran",
                         kategoriData['nama'] ?? '-',
                       ),
                       const Divider(height: 1),
                       _buildDetailRow(
                         context,
-                        "Jenis Pemasukan",
+                        "Jenis Iuran",
                         kategoriData['jenis'] ?? '-',
                       ),
                       const Divider(height: 1),
