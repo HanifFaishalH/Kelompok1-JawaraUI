@@ -74,7 +74,7 @@ class MenuScreen extends StatelessWidget {
       {
         'icon': Icons.history,
         'title': 'Log Aktifitas',
-        'action': showFeatureNotReady,
+        'action': () => context.push('/log-aktivitas'),
       },
       {
         'icon': Icons.manage_accounts,

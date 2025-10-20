@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import '../widgets/login_header.dart';
-import '../widgets/login_welcome.dart';
-import '../widgets/login_form.dart';
-import '../widgets/login_divider.dart';
-import '../widgets/login_google_button.dart';
-import '../widgets/login_register_link.dart';
+import '../../widgets/auth/login_header.dart';
+import '../../widgets/auth/login_welcome.dart';
+import '../../widgets/auth/login_form.dart';
+import '../../widgets/auth/login_divider.dart';
+import '../../widgets/auth/login_google_button.dart';
+import '../../widgets/auth/login_register_link.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
