@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:jawaramobile_1/screens/Auth/login_screens.dart';
+import 'package:jawaramobile_1/screens/Auth/register_screens.dart';
 
 // ====== Screens Utama ======
-import 'package:jawaramobile_1/screens/login_screens.dart';
-import 'package:jawaramobile_1/screens/register_screens.dart';
 import 'package:jawaramobile_1/screens/dashboard_screen.dart';
 import 'package:jawaramobile_1/screens/menu_screen.dart';
 import 'package:jawaramobile_1/screens/data_warga_rumah.dart';
