@@ -5,7 +5,7 @@ class AppTheme {
   static const Color darkPurple = Color(0xFF4C008D);
   static const Color brightPurple = Color(0xFF7F00FF);
   static const Color lightPurple = Color(0xFFD8BFD8);
-  static const Color offWhite = Color(0xFFFAF0E6);
+  static const Color offWhite = Color(0xFFFFFFFF);
 
   static final ThemeData lightTheme = ThemeData(
     useMaterial3: true,
