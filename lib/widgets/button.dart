@@ -30,9 +30,11 @@ class CustomButton extends StatelessWidget {
     final bgColor = color ?? Theme.of(context).colorScheme.primary;
     final txtColor = textColor ?? Colors.white;
 
-    return SizedBox(
-      width: width,
-      height: height ?? 50,
+    return ConstrainedBox(
+      constraints: BoxConstraints(
+        minWidth: width ?? 100,
+        minHeight: height ?? 45,
+      ),
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           backgroundColor: isOutlined ? Colors.transparent : bgColor,
@@ -44,29 +46,37 @@ class CustomButton extends StatelessWidget {
                 : BorderSide.none,
           ),
           elevation: isOutlined ? 0 : 3,
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
         ),
         onPressed: onPressed,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            if (icon != null)
-              Padding(
-                padding: EdgeInsets.only(right: text != null ? 8.0 : 0),
-                child: FaIcon(
-                  icon,
-                  color: txtColor,
-                  size: 20,
+        child: FittedBox(
+          fit: BoxFit.scaleDown,
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              if (icon != null)
+                Padding(
+                  padding: EdgeInsets.only(right: text != null ? 8.0 : 0),
+                  child: FaIcon(
+                    icon,
+                    color: txtColor,
+                    size: 18,
+                  ),
                 ),
-              ),
-            if (text != null)
-              Text(
-                text!,
-                style: TextStyle(
-                  color: txtColor,
-                  fontWeight: FontWeight.bold,
+              if (text != null)
+                Flexible(
+                  child: Text(
+                    text!,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                      color: txtColor,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 15,
+                    ),
+                  ),
                 ),
-              ),
-          ],
+            ],
+          ),
         ),
       ),
     );
