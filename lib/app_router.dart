@@ -19,6 +19,8 @@ import 'package:jawaramobile_1/screens/kegiatan/daftar_kegiatan.dart';
 import 'package:jawaramobile_1/screens/kegiatan/tambah_kegiatan.dart';
 import 'package:jawaramobile_1/screens/Kegiatan/detail_kegiatan.dart';
 import 'package:jawaramobile_1/screens/Kegiatan/edit_kegiatan.dart';
+import 'package:jawaramobile_1/screens/LogActivity/log_activity_screen.dart';
+import 'package:jawaramobile_1/screens/LogActivity/detail_log_activity_screen.dart';
 
 final appRouter = GoRouter(
   initialLocation: '/login',
@@ -143,6 +145,19 @@ final appRouter = GoRouter(
       builder: (context, state) {
         final data = state.extra as Map<String, String>;
         return EditKegiatanScreen(kegiatanData: data);
+      },
+    ),
+    GoRoute(
+      path: '/log-aktivitas',
+      name: 'log-aktivitas',
+      builder: (context, state) => const LogActivityScreen(),
+    ),
+    GoRoute(
+      path: '/detail-log-aktivitas',
+      name: 'detail-log-aktivitas',
+      builder: (context, state) {
+        final data = state.extra as Map<String, String>;
+        return DetailLogActivityScreen(logData: data);
       },
     ),
   ],
