@@ -12,6 +12,7 @@ import 'package:jawaramobile_1/screens/data_warga_rumah.dart';
 import 'package:jawaramobile_1/screens/Pemasukan/menu_pemasukan.dart';
 import 'package:jawaramobile_1/screens/Pemasukan/kategori_iuran.dart';
 import 'package:jawaramobile_1/screens/Pemasukan/detail_kategori_iuran.dart';
+import 'package:jawaramobile_1/screens/Pemasukan/tagih_iuran_page.dart';
 
 // ====== Pengeluaran ======
 import 'package:jawaramobile_1/screens/pengeluaran/pengeluaran_screen.dart';
@@ -61,9 +62,7 @@ final appRouter = GoRouter(
       name: 'menu-popup',
       builder: (context, state) => Scaffold(
         backgroundColor: Colors.black.withOpacity(0.5),
-        body: Center(
-
-        ),
+        body: Center(),
       ),
     ),
 
@@ -92,6 +91,11 @@ final appRouter = GoRouter(
         final data = state.extra as Map<String, String>;
         return DetailKategoriIuran(kategoriData: data);
       },
+    ),
+    GoRoute(
+      path: '/tagih-iuran',
+      name: 'tagih-iuran',
+      builder: (context, state) => const TagihIuranPage(),
     ),
 
     // ====== Pengeluaran ======

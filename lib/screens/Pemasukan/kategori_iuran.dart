@@ -1,13 +1,19 @@
-import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-// import 'package:jawaramobile_1/widgets/Pemasukan_filter.dart';
+import 'package:data_table_2/data_table_2.dart';
+import '../../widgets/pemasukan/add_iuran_dialog.dart';
+import '../../widgets/pemasukan/iuran_table.dart';
 
-class KategoriIuran extends StatelessWidget {
+class KategoriIuran extends StatefulWidget {
   const KategoriIuran({super.key});
 
+  @override
+  State<KategoriIuran> createState() => _KategoriIuranState();
+}
+
+class _KategoriIuranState extends State<KategoriIuran> {
   // Data dummy tanpa tanggal
-  final List<Map<String, String>> _kategoriIuran = const [
+  final List<Map<String, String>> _kategoriIuran = [
     {
       "no": "1",
       "nama": "Iuran Warga",
@@ -28,35 +34,76 @@ class KategoriIuran extends StatelessWidget {
     },
   ];
 
-  // void _showFilterDialog(BuildContext context) {
-  //   showDialog(
-  //     context: context,
-  //     builder: (BuildContext context) {
-  //       return AlertDialog(
-  //         title: const Text("Filter Pemasukan"),
-  //         // content: const PemasukanFilter(),
-  //         actions: <Widget>[
-  //           TextButton(
-  //             child: const Text("Batal"),
-  //             onPressed: () => Navigator.of(context).pop(),
-  //           ),
-  //           ElevatedButton(
-  //             child: const Text("Cari"),
-  //             onPressed: () {
-  //               // TODO: Tambahkan logika filter
-  //               Navigator.of(context).pop();
-  //             },
-  //           ),
-  //         ],
-  //       );
-  //     },
-  //   );
-  // }
+  void _showAddIuranDialog() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AddIuranDialog(
+          onIuranAdded: (newIuran) {
+            _addNewIuran(newIuran);
+          },
+        );
+      },
+    );
+  }
+
+  void _addNewIuran(Map<String, String> newIuran) {
+    setState(() {
+      _kategoriIuran.add({
+        "no": (_kategoriIuran.length + 1).toString(),
+        "nama": newIuran['nama']!,
+        "jenis": newIuran['jenis']!,
+        "nominal": newIuran['nominal'] ?? "Rp 0",
+      });
+    });
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text("Iuran ${newIuran['nama']} berhasil ditambahkan"),
+        backgroundColor: Colors.green,
+      ),
+    );
+  }
+
+  void _deleteIuran(Map<String, String> item) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text("Hapus Iuran"),
+          content: Text("Yakin ingin menghapus iuran ${item['nama']}?"),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(context).pop(),
+              child: const Text("Batal"),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                setState(() {
+                  _kategoriIuran.remove(item);
+                });
+                Navigator.of(context).pop();
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text("Iuran ${item['nama']} berhasil dihapus"),
+                    backgroundColor: Colors.green,
+                  ),
+                );
+              },
+              style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
+              child: const Text("Hapus", style: TextStyle(color: Colors.white)),
+            ),
+          ],
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final colorScheme = Theme.of(context).colorScheme;
+
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -70,13 +117,6 @@ class KategoriIuran extends StatelessWidget {
           icon: const Icon(Icons.arrow_back),
           onPressed: () => context.go('/menu-pemasukan'),
         ),
-        // iconTheme: IconThemeData(color: theme.colorScheme.onPrimary),
-        // actions: [
-        //   IconButton(
-        //     icon: const Icon(Icons.filter_list),
-        //     onPressed: () => _showFilterDialog(context),
-        //   ),
-        // ],
       ),
       body: Container(
         margin: const EdgeInsets.all(16),
@@ -95,55 +135,13 @@ class KategoriIuran extends StatelessWidget {
         ),
         child: Padding(
           padding: const EdgeInsets.all(16),
-          child: DataTable2(
-            columnSpacing: 12,
-            horizontalMargin: 12,
-            minWidth: 500,
-            columns: const [
-              DataColumn2(label: Text('No'), size: ColumnSize.S),
-              DataColumn2(label: Text('Nama'), size: ColumnSize.L),
-              DataColumn2(label: Text('Jenis')),
-              DataColumn2(label: Text('Nominal'), numeric: true),
-              DataColumn2(
-                label: Center(child: Text('Aksi')),
-                size: ColumnSize.L,
-              ),
-            ],
-            rows: _kategoriIuran.map((item) {
-              return DataRow(
-                cells: [
-                  DataCell(Text(item['no']!)),
-                  DataCell(Text(item['nama']!)),
-                  DataCell(Text(item['jenis']!)),
-                  DataCell(
-                    Text(
-                      item['nominal']!,
-                      style: TextStyle(
-                        color: Colors.green[700],
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                  DataCell(
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        IconButton(
-                          icon: Icon(
-                            Icons.remove_red_eye,
-                            size: 20,
-                            color: theme.colorScheme.primary,
-                          ),
-                          onPressed: () {
-                            context.push('/detail-kategori', extra: item);
-                          },
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              );
-            }).toList(),
+          child: IuranTable(
+            kategoriIuran: _kategoriIuran,
+            onAddPressed: _showAddIuranDialog,
+            onDeletePressed: _deleteIuran,
+            onViewPressed: (item) {
+              context.push('/detail-kategori', extra: item);
+            },
           ),
         ),
       ),
