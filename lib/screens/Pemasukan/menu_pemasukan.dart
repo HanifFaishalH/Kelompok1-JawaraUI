@@ -17,7 +17,7 @@ class _MenuPemasukanState extends State<MenuPemasukan> {
       appBar: AppBar(
         title: const Text('Pemasukan'),
         backgroundColor: colorScheme.primary,
-        foregroundColor: colorScheme.onPrimary,
+        foregroundColor: Colors.white,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () => context.go('/menu'),
@@ -25,7 +25,7 @@ class _MenuPemasukanState extends State<MenuPemasukan> {
       ),
       // Aktifkan agar body bisa “tembus” ke bawah navigation bar yang melayang
       extendBody: true,
-      backgroundColor: colorScheme.background,
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: Stack(
           children: [
@@ -100,11 +100,7 @@ class _MenuPemasukanItemState extends State<MenuPemasukanItem> {
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Center(
-                child: FaIcon(
-                  widget.icon,
-                  color: colorScheme.onPrimary,
-                  size: 28,
-                ),
+                child: FaIcon(widget.icon, color: Colors.white, size: 28),
               ),
             ),
             const SizedBox(height: 8),
@@ -153,7 +149,7 @@ class MenuPemasukanHeader extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: colorScheme.surface,
+        color: Colors.white,
         borderRadius: BorderRadius.circular(16),
         boxShadow: const [BoxShadow(color: Colors.black12, blurRadius: 6)],
       ),

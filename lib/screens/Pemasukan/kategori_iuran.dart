@@ -56,17 +56,15 @@ class KategoriIuran extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-
+    final colorScheme = Theme.of(context).colorScheme;
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.deepPurple,
+        backgroundColor: colorScheme.primary,
         elevation: 0,
         title: Text(
           "Kategori Iuran",
-          style: theme.textTheme.titleLarge?.copyWith(
-            color: theme.colorScheme.onPrimary,
-          ),
+          style: theme.textTheme.titleLarge?.copyWith(color: Colors.white),
         ),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
@@ -81,9 +79,20 @@ class KategoriIuran extends StatelessWidget {
         // ],
       ),
       body: Container(
+        margin: const EdgeInsets.all(16),
         height: double.infinity,
         width: double.infinity,
-        decoration: BoxDecoration(color: Colors.white.withOpacity(0.9)),
+        decoration: BoxDecoration(
+          color: Colors.white.withOpacity(0.95),
+          borderRadius: BorderRadius.circular(16),
+          boxShadow: const [
+            BoxShadow(
+              color: Colors.black12,
+              blurRadius: 8,
+              offset: Offset(0, 4),
+            ),
+          ],
+        ),
         child: Padding(
           padding: const EdgeInsets.all(16),
           child: DataTable2(
