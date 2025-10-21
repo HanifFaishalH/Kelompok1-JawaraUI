@@ -243,16 +243,17 @@ final appRouter = GoRouter(
         final data = state.extra as Map<String, String>;
         return EditBroadcastScreen(broadcastData: data);
       },
+    ),
     GoRoute(
       path: '/manajemen-pengguna',
       name: 'manajemen-pengguna',
       builder: (context, state) => const DaftarPenggunaScreen(),
     ),
-    GoRoute(
-      path: '/daftar-pengguna',
-      name: 'daftar-pengguna',
-      builder: (context, state) => const DaftarPenggunaScreen(),
-    ),
+    // GoRoute(
+    //   path: '/daftar-pengguna',
+    //   name: 'daftar-pengguna',
+    //   builder: (context, state) => const DaftarPenggunaScreen(),
+    // ),
     GoRoute(
       path: '/tambah-pengguna',
       name: 'tambah-pengguna',
@@ -269,7 +270,7 @@ final appRouter = GoRouter(
     GoRoute(
       path: '/mutasi',
       name: 'mutasi',
-      builder: (context, state) => MutasiPage()
+      builder: (context, state) => MutasiPage(),
     ),
 
     GoRoute(
@@ -278,7 +279,7 @@ final appRouter = GoRouter(
       builder: (context, state) {
         final data = state.extra as Map<String, dynamic>;
         return MutasiDetailPage(data: data);
-      }
-    )
+      },
+    ),
   ],
 );

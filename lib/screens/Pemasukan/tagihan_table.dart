@@ -51,6 +51,13 @@ class TagihanTable extends StatelessWidget {
         columnSpacing: 12,
         horizontalMargin: 12,
         minWidth: 800,
+        headingRowColor: MaterialStateProperty.all(
+          theme.colorScheme.primary.withOpacity(0.1),
+        ),
+        headingTextStyle: TextStyle(
+          fontWeight: FontWeight.bold,
+          color: theme.colorScheme.secondary,
+        ),
         columns: const [
           DataColumn2(label: Text('No'), size: ColumnSize.S),
           DataColumn2(label: Text('Nama Keluarga'), size: ColumnSize.L),
