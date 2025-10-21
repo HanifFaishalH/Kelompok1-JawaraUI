@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:jawaramobile_1/widgets/submenu_keuangan.dart';
 
 void showMenuPopUp(BuildContext context) {
   showGeneralDialog(
@@ -84,7 +83,7 @@ class _MenuPopUpContent extends StatelessWidget {
       {
         'icon': Icons.campaign,
         'title': 'Broadcast',
-        'action': () => showFeatureNotReady(context),
+        'action': () => context.push('/broadcast'),
       },
       {
         'icon': Icons.chat_bubble,
@@ -94,7 +93,7 @@ class _MenuPopUpContent extends StatelessWidget {
       {
         'icon': Icons.person_add_alt_1,
         'title': 'Penerimaan Warga',
-        'action': () => showFeatureNotReady(context),
+        'action': () => context.push('/penerimaan-warga'),
       },
       {
         'icon': Icons.switch_account,

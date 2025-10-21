@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:jawaramobile_1/widgets/broadcast/tambah_broadcast_form.dart';
 
-class TambahBroadcastScreen extends StatelessWidget {
-  const TambahBroadcastScreen({super.key});
+class EditBroadcastScreen extends StatelessWidget {
+  // Halaman ini akan menerima data kegiatan yang akan diedit
+  final Map<String, String> broadcastData;
+
+  const EditBroadcastScreen({super.key, required this.broadcastData});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +18,7 @@ class TambahBroadcastScreen extends StatelessWidget {
         backgroundColor: colorScheme.primary,
         elevation: 0,
         title: Text(
-          "Tambah Broadcast",
+          "Edit Broadcast",
           style: theme.textTheme.titleLarge?.copyWith(
             color: theme.colorScheme.onPrimary,
           ),
@@ -25,9 +28,11 @@ class TambahBroadcastScreen extends StatelessWidget {
       body: Container(
         height: double.infinity,
         decoration: BoxDecoration(color: Colors.white.withOpacity(0.9)),
-        child: const SingleChildScrollView(
-          padding: EdgeInsets.all(24.0),
-          child: TambahBroadcastForm(),
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.all(24.0),
+          // Gunakan form yang sama, tetapi kirimkan data awal
+          // agar semua field terisi secara otomatis.
+          child: TambahBroadcastForm(initialData: broadcastData),
         ),
       ),
     );

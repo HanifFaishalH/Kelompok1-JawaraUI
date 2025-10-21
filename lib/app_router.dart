@@ -28,10 +28,16 @@ import 'package:jawaramobile_1/screens/LaporanKeuangan/cetak_laporan_screen.dart
 import 'package:jawaramobile_1/screens/LaporanKeuangan/menu_laporan_keuangan.dart';
 
 // ====== Kegiatan ======
-import 'package:jawaramobile_1/screens/kegiatan/daftar_kegiatan.dart';
-import 'package:jawaramobile_1/screens/kegiatan/tambah_kegiatan.dart';
+import 'package:jawaramobile_1/screens/Kegiatan/daftar_kegiatan.dart';
+import 'package:jawaramobile_1/screens/Kegiatan/tambah_kegiatan.dart';
 import 'package:jawaramobile_1/screens/Kegiatan/detail_kegiatan.dart';
 import 'package:jawaramobile_1/screens/Kegiatan/edit_kegiatan.dart';
+
+// ====== Broadcast ======
+import 'package:jawaramobile_1/screens/Broadcast/daftar_broadcast.dart';
+import 'package:jawaramobile_1/screens/Broadcast/tambah_broadcast.dart';
+import 'package:jawaramobile_1/screens/Broadcast/detail_broadcast.dart';
+import 'package:jawaramobile_1/screens/Broadcast/edit_broadcast.dart';
 
 // ====== Lainnya ======
 import 'package:jawaramobile_1/screens/penerimaan_warga_screen.dart';
@@ -182,6 +188,34 @@ final appRouter = GoRouter(
       builder: (context, state) {
         final data = state.extra as Map<String, String>;
         return EditKegiatanScreen(kegiatanData: data);
+      },
+    ),
+
+    // ====== Broadcast ======
+    GoRoute(
+      path: '/broadcast',
+      name: 'broadcast',
+      builder: (context, state) => const BroadcastScreen(),
+    ),
+    GoRoute(
+      path: '/tambah-broadcast',
+      name: 'tambah-broadcast',
+      builder: (context, state) => const TambahBroadcastScreen(),
+    ),
+    GoRoute(
+      path: '/detail-broadcast',
+      name: 'detail-broadcast',
+      builder: (context, state) {
+        final data = state.extra as Map<String, String>;
+        return DetailBroadcastScreen(broadcastData: data);
+      },
+    ),
+    GoRoute(
+      path: '/edit-broadcast',
+      name: 'edit-broadcast',
+      builder: (context, state) {
+        final data = state.extra as Map<String, String>;
+        return EditBroadcastScreen(broadcastData: data);
       },
     ),
 
