@@ -39,6 +39,7 @@ dependencies:
   font_awesome_flutter: ^10.10.0
   go_router: ^16.2.4
   image_picker: ^0.8.7+6
+  file_picker: ^8.0.3
   fl_chart: ^1.1.1
 
 dev_dependencies:

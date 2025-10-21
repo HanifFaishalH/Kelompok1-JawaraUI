@@ -73,6 +73,11 @@ class DetailKegiatanScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final colorScheme = Theme.of(context).colorScheme;
+    final List<String> documentationItems =
+        (kegiatanData['documentation'] ?? '')
+            .split(',')
+            .where((s) => s.isNotEmpty)
+            .toList();
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -152,6 +157,29 @@ class DetailKegiatanScreen extends StatelessWidget {
               Text(
                 kegiatanData['deskripsi'] ?? 'Tidak ada deskripsi.',
                 style: theme.textTheme.bodyLarge,
+              ),
+              const SizedBox(height: 24),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Dokumentasi Kegiatan',
+                    style: theme.textTheme.titleMedium?.copyWith(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(12),
+                    // TODO: Replace with actual image loading (e.g., Image.network)
+                    child: Container(
+                      height: 200,
+                      color: Colors.grey.shade300,
+                      child: const Center(child: Icon(Icons.image)),
+                    ),
+                  ),
+                  const SizedBox(height: 24),
+                ],
               ),
               const SizedBox(height: 40),
 
