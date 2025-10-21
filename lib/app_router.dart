@@ -216,6 +216,7 @@ final appRouter = GoRouter(
 
     GoRoute(
       path: '/mutasi',
+      name: 'mutasi',
       builder: (context, state) => MutasiPage()
     ),
 
