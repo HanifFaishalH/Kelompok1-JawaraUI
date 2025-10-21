@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:jawaramobile_1/screens/Auth/login_screens.dart';
 import 'package:jawaramobile_1/screens/Auth/register_screens.dart';
+import 'package:jawaramobile_1/screens/Mutasi/mutasi_detail_page.dart';
+import 'package:jawaramobile_1/screens/Mutasi/mutasi_page.dart';
 
 // ====== Screens Utama ======
 import 'package:jawaramobile_1/screens/dashboard_screen.dart';
-import 'package:jawaramobile_1/screens/menu_screen.dart';
 import 'package:jawaramobile_1/screens/data_warga_rumah.dart';
 
 // ====== Pemasukan ======
@@ -232,5 +233,20 @@ final appRouter = GoRouter(
       name: 'penerimaan-warga',
       builder: (context, state) => const PenerimaanWargaScreen(),
     ),
+
+    GoRoute(
+      path: '/mutasi',
+      name: 'mutasi',
+      builder: (context, state) => MutasiPage()
+    ),
+
+    GoRoute(
+      path: '/mutasi-detail',
+      name: 'mutasi-detail',
+      builder: (context, state) {
+        final data = state.extra as Map<String, dynamic>;
+        return MutasiDetailPage(data: data);
+      }
+    )
   ],
 );

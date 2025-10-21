@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jawaramobile_1/widgets/dashboard_chart.dart';
 import '../widgets/dashboard_header.dart';
 import '../widgets/dashboard_statistik.dart';
 import '../widgets/kegiatan_section.dart';
@@ -30,6 +31,10 @@ class DashboardScreen extends StatelessWidget {
                   SizedBox(height: 16),
                   DashboardStatistik(),
                   SizedBox(height: 24),
+
+                  DashboardChart(),
+                  SizedBox(height: 24),
+
                   KegiatanSection(),
                   SizedBox(height: 24),
                   LogAktivitasSection(),
@@ -56,7 +61,7 @@ class DashboardScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                  child: const BottomNavbar(), // Widget bottom_navbar.dart kamu
+                  child: const BottomNavbar(), // Widget bottom_navbar.dart
                 ),
               ),
             ),
