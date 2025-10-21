@@ -1,4 +1,6 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
 
 class TambahKegiatanForm extends StatefulWidget {
@@ -21,6 +23,9 @@ class _TambahKegiatanFormState extends State<TambahKegiatanForm> {
   late TextEditingController _lokasiController;
   late TextEditingController _deskripsiController;
   String? _selectedKategori;
+  File? _photo;
+
+  final ImagePicker _imagePicker = ImagePicker();
 
   final List<String> _kategoriOptions = [
     'Komunitas & Sosial',
@@ -64,6 +69,17 @@ class _TambahKegiatanFormState extends State<TambahKegiatanForm> {
       String formattedDate = DateFormat('dd MMM yyyy').format(picked);
       setState(() {
         _tanggalController.text = formattedDate;
+      });
+    }
+  }
+
+  Future<void> _pickImage() async {
+    final XFile? pickedImage = await _imagePicker.pickImage(
+      source: ImageSource.gallery,
+    );
+    if (pickedImage != null) {
+      setState(() {
+        _photo = File(pickedImage.path);
       });
     }
   }
@@ -188,9 +204,47 @@ class _TambahKegiatanFormState extends State<TambahKegiatanForm> {
                 ? 'Deskripsi tidak boleh kosong'
                 : null,
           ),
+          const SizedBox(height: 20),
+          Text(
+            'Upload Dokumentasi (Opsional)',
+            style: theme.textTheme.titleMedium,
+          ),
+          const SizedBox(height: 8),
+          _buildImagePicker(context),
+          const SizedBox(height: 20),
           const SizedBox(height: 40),
           ElevatedButton(onPressed: _submitForm, child: const Text('Simpan')),
         ],
+      ),
+    );
+  }
+
+  Widget _buildImagePicker(BuildContext context) {
+    return GestureDetector(
+      onTap: _pickImage,
+      child: Container(
+        height: 150,
+        decoration: BoxDecoration(
+          /* ... styling ... */ color: Colors.grey.shade100,
+        ),
+        child: _photo == null
+            ? Center(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: const [
+                    Icon(Icons.add_a_photo_outlined),
+                    Text('Tap untuk tambah foto'),
+                  ],
+                ),
+              )
+            : ClipRRect(
+                borderRadius: BorderRadius.circular(12),
+                child: Image.file(
+                  _photo!,
+                  fit: BoxFit.cover,
+                  width: double.infinity,
+                ),
+              ),
       ),
     );
   }

@@ -114,21 +114,9 @@ class DetailBroadcastScreen extends StatelessWidget {
                       const Divider(height: 1),
                       _buildDetailRow(
                         context,
-                        "Isi Pesan",
-                        broadcastData['isi'] ?? '-',
-                      ),
-                      const Divider(height: 1),
-                      _buildDetailRow(
-                        context,
                         "Pengirim",
                         broadcastData['pengirim'] ?? '-',
                       ),
-                      // const Divider(height: 1),
-                      // _buildDetailRow(
-                      //   context,
-                      //   "Lokasi",
-                      //   broadcastData['lokasi'] ?? '-',
-                      // ),
                       const Divider(height: 1),
                       _buildDetailRow(
                         context,
@@ -143,17 +131,68 @@ class DetailBroadcastScreen extends StatelessWidget {
 
               // Bagian untuk menampilkan deskripsi
               Text(
-                'Deskripsi',
+                'Isi Broadcast',
                 style: theme.textTheme.titleMedium?.copyWith(
                   fontWeight: FontWeight.bold,
                 ),
               ),
               const SizedBox(height: 8),
               Text(
-                broadcastData['deskripsi'] ?? 'Tidak ada deskripsi.',
+                broadcastData['isi'] ?? 'Tidak ada deskripsi.',
                 style: theme.textTheme.bodyLarge,
               ),
-              const SizedBox(height: 40),
+              const SizedBox(height: 24),
+
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Lampiran Foto',
+                    style: theme.textTheme.titleMedium?.copyWith(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(12),
+                    // TODO: Replace with actual image loading (e.g., Image.network)
+                    child: Container(
+                      height: 200,
+                      color: Colors.grey.shade300,
+                      child: const Center(child: Icon(Icons.image)),
+                    ),
+                  ),
+                  const SizedBox(height: 24),
+                ],
+              ),
+
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Lampiran Dokumen',
+                    style: theme.textTheme.titleMedium?.copyWith(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  ListTile(
+                    leading: const Icon(Icons.description_outlined),
+                    title: Text(
+                      broadcastData['namaDokumen'] ?? 'Dokumen',
+                    ), // Use actual key name
+                    trailing: const Icon(Icons.download_for_offline_outlined),
+                    onTap: () {
+                      // TODO: Implement document download/view logic
+                    },
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8),
+                      side: BorderSide(color: Colors.grey.shade300),
+                    ),
+                  ),
+                  const SizedBox(height: 40),
+                ],
+              ),
 
               // Tombol Aksi (Edit dan Hapus)
               Row(
