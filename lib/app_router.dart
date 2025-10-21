@@ -34,8 +34,13 @@ import 'package:jawaramobile_1/screens/kegiatan/tambah_kegiatan.dart';
 import 'package:jawaramobile_1/screens/Kegiatan/detail_kegiatan.dart';
 import 'package:jawaramobile_1/screens/Kegiatan/edit_kegiatan.dart';
 
+// ====== Manajemen Pengguna ======
+import 'package:jawaramobile_1/screens/ManajemenPengguna/daftar_pengguna_screen.dart';
+import 'package:jawaramobile_1/screens/ManajemenPengguna/tambah_pengguna_screen.dart';
+
 // ====== Lainnya ======
 import 'package:jawaramobile_1/screens/penerimaan_warga_screen.dart';
+
 
 final appRouter = GoRouter(
   initialLocation: '/login',
@@ -184,6 +189,22 @@ final appRouter = GoRouter(
         final data = state.extra as Map<String, String>;
         return EditKegiatanScreen(kegiatanData: data);
       },
+    ),
+
+    GoRoute(
+      path: '/manajemen-pengguna',
+      name: 'manajemen-pengguna',
+      builder: (context, state) => const DaftarPenggunaScreen(),
+    ),
+    GoRoute(
+      path: '/daftar-pengguna',
+      name: 'daftar-pengguna',
+      builder: (context, state) => const DaftarPenggunaScreen(),
+    ),
+    GoRoute(
+      path: '/tambah-pengguna',
+      name: 'tambah-pengguna',
+      builder: (context, state) => const TambahPenggunaScreen(),
     ),
 
     // ====== Lain-lain ======
