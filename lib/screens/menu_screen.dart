@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:jawaramobile_1/widgets/submenu_keuangan.dart';
+import 'package:jawaramobile_1/widgets/submenu_manajemen_pengguna.dart';
 
 class MenuScreen extends StatelessWidget {
   const MenuScreen({super.key});
@@ -79,7 +80,7 @@ class MenuScreen extends StatelessWidget {
       {
         'icon': Icons.manage_accounts,
         'title': 'Manajemen Pengguna',
-        'action': () => context.push('/manajemen-pengguna'),
+        'action': () => showSubMenuManajemenPengguna(context), 
       },
       {
         'icon': Icons.wallet,
