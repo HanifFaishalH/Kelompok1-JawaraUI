@@ -141,9 +141,13 @@ class MenuPemasukanHeader extends StatelessWidget {
       {
         'label': 'Tagihan',
         'icon': FontAwesomeIcons.peopleGroup,
-        'route': '/weight',
+        'route': '/daftar-tagihan',
       },
-      {'label': 'Lain-lain', 'icon': FontAwesomeIcons.book, 'route': '/other'},
+      {
+        'label': 'Lain-lain',
+        'icon': FontAwesomeIcons.book,
+        'route': '/pemasukan-lain',
+      },
     ];
 
     return Container(

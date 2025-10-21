@@ -14,6 +14,9 @@ import 'package:jawaramobile_1/screens/Pemasukan/menu_pemasukan.dart';
 import 'package:jawaramobile_1/screens/Pemasukan/kategori_iuran.dart';
 import 'package:jawaramobile_1/screens/Pemasukan/detail_kategori_iuran.dart';
 import 'package:jawaramobile_1/screens/Pemasukan/tagih_iuran_page.dart';
+import 'package:jawaramobile_1/screens/Pemasukan/daftar_tagihan.dart';
+import 'package:jawaramobile_1/screens/Pemasukan/detail_tagihan.dart';
+import 'package:jawaramobile_1/screens/Pemasukan/lain_lain.dart';
 
 // ====== Pengeluaran ======
 import 'package:jawaramobile_1/screens/pengeluaran/pengeluaran_screen.dart';
@@ -40,7 +43,6 @@ import 'package:jawaramobile_1/screens/ManajemenPengguna/tambah_pengguna_screen.
 
 // ====== Lainnya ======
 import 'package:jawaramobile_1/screens/penerimaan_warga_screen.dart';
-
 
 final appRouter = GoRouter(
   initialLocation: '/login',
@@ -103,6 +105,24 @@ final appRouter = GoRouter(
       path: '/tagih-iuran',
       name: 'tagih-iuran',
       builder: (context, state) => const TagihIuranPage(),
+    ),
+    GoRoute(
+      path: '/daftar-tagihan',
+      name: 'daftar-tagihan',
+      builder: (context, state) => const DaftarTagihan(),
+    ),
+    GoRoute(
+      path: '/detail-tagihan',
+      name: 'detail-tagihan',
+      builder: (context, state) {
+        final data = state.extra as Map<String, String>;
+        return DetailTagihan(kategoriData: data);
+      },
+    ),
+    GoRoute(
+      path: '/pemasukan-lain',
+      name: 'pemasukan-lain',
+      builder: (context, state) => const PemasukanLain(),
     ),
 
     // ====== Pengeluaran ======
