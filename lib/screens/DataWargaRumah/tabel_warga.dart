@@ -14,37 +14,40 @@ class TabelWarga extends StatelessWidget {
     final colorScheme = theme.colorScheme;
 
     return ListView(
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       children: [
         Text("Tabel Data Warga",
             style: theme.textTheme.titleLarge?.copyWith(color: colorScheme.primary)),
         const SizedBox(height: 8),
         Card(
-          elevation: 2,
+          margin: const EdgeInsets.symmetric(vertical: 8),
+          elevation: 3,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-          child: SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: DataTable(
-              headingRowColor:
-              WidgetStateProperty.all(colorScheme.primaryContainer),
-              headingTextStyle: theme.textTheme.titleSmall
-                  ?.copyWith(color: colorScheme.onPrimaryContainer),
-              columns: const [
-                DataColumn(label: Text("Nama")),
-                DataColumn(label: Text("NIK")),
-                DataColumn(label: Text("Umur")),
-                DataColumn(label: Text("Pekerjaan")),
-              ],
-              rows: warga
-                  .map(
-                    (w) => DataRow(cells: [
-                  DataCell(Text(w["nama"])),
-                  DataCell(Text(w["nik"])),
-                  DataCell(Text("${w["umur"]}")),
-                  DataCell(Text(w["pekerjaan"])),
-                ]),
-              )
-                  .toList(),
+          child: Padding(
+            padding: const EdgeInsets.all(8),
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: DataTable(
+                headingRowColor: WidgetStateProperty.all(colorScheme.primaryContainer),
+                headingTextStyle: theme.textTheme.titleSmall
+                    ?.copyWith(color: colorScheme.onPrimaryContainer),
+                columns: const [
+                  DataColumn(label: Text("Nama")),
+                  DataColumn(label: Text("NIK")),
+                  DataColumn(label: Text("Umur")),
+                  DataColumn(label: Text("Pekerjaan")),
+                ],
+                rows: warga
+                    .map(
+                      (w) => DataRow(cells: [
+                    DataCell(Text(w["nama"])),
+                    DataCell(Text(w["nik"])),
+                    DataCell(Text("${w["umur"]}")),
+                    DataCell(Text(w["pekerjaan"])),
+                  ]),
+                )
+                    .toList(),
+              ),
             ),
           ),
         ),

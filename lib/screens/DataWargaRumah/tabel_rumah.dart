@@ -14,35 +14,38 @@ class TabelRumah extends StatelessWidget {
     final colorScheme = theme.colorScheme;
 
     return ListView(
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       children: [
         Text("Tabel Data Rumah",
             style: theme.textTheme.titleLarge?.copyWith(color: colorScheme.primary)),
         const SizedBox(height: 8),
         Card(
-          elevation: 2,
+          margin: const EdgeInsets.symmetric(vertical: 8),
+          elevation: 3,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-          child: SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: DataTable(
-              headingRowColor:
-              WidgetStateProperty.all(colorScheme.primaryContainer),
-              headingTextStyle: theme.textTheme.titleSmall
-                  ?.copyWith(color: colorScheme.onPrimaryContainer),
-              columns: const [
-                DataColumn(label: Text("Alamat")),
-                DataColumn(label: Text("Luas")),
-                DataColumn(label: Text("Status")),
-              ],
-              rows: rumah
-                  .map(
-                    (r) => DataRow(cells: [
-                  DataCell(Text(r["alamat"])),
-                  DataCell(Text(r["luas"])),
-                  DataCell(Text(r["status"])),
-                ]),
-              )
-                  .toList(),
+          child: Padding(
+            padding: const EdgeInsets.all(8),
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: DataTable(
+                headingRowColor: WidgetStateProperty.all(colorScheme.primaryContainer),
+                headingTextStyle: theme.textTheme.titleSmall
+                    ?.copyWith(color: colorScheme.onPrimaryContainer),
+                columns: const [
+                  DataColumn(label: Text("Alamat")),
+                  DataColumn(label: Text("Luas")),
+                  DataColumn(label: Text("Status")),
+                ],
+                rows: rumah
+                    .map(
+                      (r) => DataRow(cells: [
+                    DataCell(Text(r["alamat"])),
+                    DataCell(Text(r["luas"])),
+                    DataCell(Text(r["status"])),
+                  ]),
+                )
+                    .toList(),
+              ),
             ),
           ),
         ),
