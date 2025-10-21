@@ -16,10 +16,7 @@ void showMenuPopUp(BuildContext context) {
       final offsetAnim = Tween<Offset>(
         begin: const Offset(0, 1),
         end: Offset.zero,
-      ).animate(CurvedAnimation(
-        parent: anim,
-        curve: Curves.easeOutCubic,
-      ));
+      ).animate(CurvedAnimation(parent: anim, curve: Curves.easeOutCubic));
 
       return SlideTransition(
         position: offsetAnim,
@@ -54,19 +51,71 @@ class _MenuPopUpContent extends StatelessWidget {
     final theme = Theme.of(context);
 
     final List<Map<String, dynamic>> menuItems = [
-      {'icon': Icons.dashboard, 'title': 'Dashboard', 'action': () => showFeatureNotReady(context)},
-      {'icon': Icons.event_note, 'title': 'Kegiatan', 'action': () => context.push('/kegiatan')},
-      {'icon': Icons.home_work, 'title': 'Data Warga & Rumah', 'action': () => context.push('/data-warga-rumah')},
-      {'icon': Icons.account_balance_wallet, 'title': 'Pemasukan', 'action': () => context.push('/menu-pemasukan')},
-      {'icon': Icons.monetization_on, 'title': 'Pengeluaran', 'action': () => context.push('/pengeluaran')},
-      {'icon': Icons.assessment, 'title': 'Laporan Keuangan', 'action': () => showSubMenuKeuangan(context)},
-      {'icon': Icons.campaign, 'title': 'Broadcast', 'action': () => showFeatureNotReady(context)},
-      {'icon': Icons.chat_bubble, 'title': 'Pesan Warga', 'action': () => showFeatureNotReady(context)},
-      {'icon': Icons.person_add_alt_1, 'title': 'Penerimaan Warga', 'action': () => showFeatureNotReady(context)},
-      {'icon': Icons.switch_account, 'title': 'Mutasi Keluarga', 'action': () => context.push('/mutasi')},
-      {'icon': Icons.history, 'title': 'Log Aktifitas', 'action': () => showFeatureNotReady(context)},
-      {'icon': Icons.manage_accounts, 'title': 'Manajemen Pengguna', 'action': () => context.push('/manajemen-pengguna')},
-      {'icon': Icons.wallet, 'title': 'Channel Transfer', 'action': () => context.push('/channel-transfer')},
+      {
+        'icon': Icons.dashboard,
+        'title': 'Dashboard',
+        'action': () => showFeatureNotReady(context),
+      },
+      {
+        'icon': Icons.event_note,
+        'title': 'Kegiatan',
+        'action': () => context.push('/kegiatan'),
+      },
+      {
+        'icon': Icons.home_work,
+        'title': 'Data Warga & Rumah',
+        'action': () => context.push('/data-warga-rumah'),
+      },
+      {
+        'icon': Icons.account_balance_wallet,
+        'title': 'Pemasukan',
+        'action': () => context.push('/menu-pemasukan'),
+      },
+      {
+        'icon': Icons.monetization_on,
+        'title': 'Pengeluaran',
+        'action': () => context.push('/pengeluaran'),
+      },
+      {
+        'icon': Icons.assessment,
+        'title': 'Laporan Keuangan',
+        'action': () => context.push('/laporan-keuangan'),
+      },
+      {
+        'icon': Icons.campaign,
+        'title': 'Broadcast',
+        'action': () => showFeatureNotReady(context),
+      },
+      {
+        'icon': Icons.chat_bubble,
+        'title': 'Pesan Warga',
+        'action': () => showFeatureNotReady(context),
+      },
+      {
+        'icon': Icons.person_add_alt_1,
+        'title': 'Penerimaan Warga',
+        'action': () => showFeatureNotReady(context),
+      },
+      {
+        'icon': Icons.switch_account,
+        'title': 'Mutasi Keluarga',
+        'action': () => context.push('/mutasi'),
+      },
+      {
+        'icon': Icons.history,
+        'title': 'Log Aktifitas',
+        'action': () => showFeatureNotReady(context),
+      },
+      {
+        'icon': Icons.manage_accounts,
+        'title': 'Manajemen Pengguna',
+        'action': () => context.push('/manajemen-pengguna'),
+      },
+      {
+        'icon': Icons.wallet,
+        'title': 'Channel Transfer',
+        'action': () => context.push('/channel-transfer'),
+      },
     ];
 
     return Material(
@@ -120,7 +169,11 @@ class _MenuPopUpContent extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Icon(item['icon'], size: 36, color: theme.colorScheme.primary),
+                    Icon(
+                      item['icon'],
+                      size: 36,
+                      color: theme.colorScheme.primary,
+                    ),
                     const SizedBox(height: 12),
                     Text(
                       item['title'],

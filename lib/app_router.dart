@@ -25,6 +25,7 @@ import 'package:jawaramobile_1/screens/LaporanKeuangan/detail_pengeluaran.dart';
 import 'package:jawaramobile_1/screens/LaporanKeuangan/semua_pemasukan.dart';
 import 'package:jawaramobile_1/screens/LaporanKeuangan/detail_pemasukan.dart';
 import 'package:jawaramobile_1/screens/LaporanKeuangan/cetak_laporan_screen.dart';
+import 'package:jawaramobile_1/screens/LaporanKeuangan/menu_laporan_keuangan.dart';
 
 // ====== Kegiatan ======
 import 'package:jawaramobile_1/screens/kegiatan/daftar_kegiatan.dart';
@@ -119,6 +120,11 @@ final appRouter = GoRouter(
     ),
 
     // ====== Laporan Keuangan ======
+    GoRoute(
+      path: '/laporan-keuangan',
+      name: 'laporan-keuangan',
+      builder: (context, state) => const MenuLaporanKeuangan(),
+    ),
     GoRoute(
       path: '/semua-pengeluaran',
       name: 'semua-pengeluaran',

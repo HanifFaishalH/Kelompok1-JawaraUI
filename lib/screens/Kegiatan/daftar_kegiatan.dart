@@ -90,11 +90,12 @@ class KegiatanScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final colorScheme = Theme.of(context).colorScheme;
 
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.deepPurple,
+        backgroundColor: colorScheme.primary,
         elevation: 0,
         title: Text(
           "Kegiatan",
