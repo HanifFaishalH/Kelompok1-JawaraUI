@@ -20,7 +20,7 @@ class _RegisterScreensState extends State<RegisterScreens> {
   final _passwordController = TextEditingController();
   final _confirmPasswordController = TextEditingController();
   final _alamatController = TextEditingController();
-  bool _obscurePassword = false;
+  bool _obscurePassword = true;
 
   @override
   void dispose() {
@@ -75,7 +75,7 @@ class _RegisterScreensState extends State<RegisterScreens> {
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
-            padding: const EdgeInsets.symmetric(horizontal: 24.0),
+            padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 24),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

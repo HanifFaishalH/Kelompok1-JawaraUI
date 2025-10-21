@@ -8,7 +8,7 @@
 | Dio Andika Pradana Mulia Tama | 2341720098 | Menu Pengeluaran, Laporan Keuangan, Kegiatan & Broadcast |
 | Gabriel Batavia Xaverius      | 2341720184 | ---------                          |
 | Hanif Faisal Hilmi            | 2341720116 | Dashboard Homescreen               |
-| Muhammad Nur Aziz             | 2341720237 | Login, Register Page               |
+| Muhammad Nur Aziz             | 2341720237 | Login, Register Page, Menu Pemasukan               |
 
 ## Link Figma
 
@@ -19,7 +19,19 @@
 ## Tampilan JawaraMobile
 
 ### Login Page
-
+![login](./assets/screenshot/login.jpg)
 ### Register Page
-
+![register](./assets/screenshot/register.gif)
 ### Dashboard Homescreen
+![home](./assets/screenshot/home.gif)
+### Menu Pemasukan
+#### Kategori Iuran
+![kategoriiuran](./assets/screenshot/kategori_iuran.gif)
+#### Tagih Iuran
+![tagih](./assets/screenshot/tagihan_iuran.gif)
+#### Daftar Tagihan
+![daftartagih](./assets/screenshot/daftar_tagihan.gif)
+#### Lain-lain
+![lain-lain](./assets/screenshot/lain_lain.gif)
+
+
