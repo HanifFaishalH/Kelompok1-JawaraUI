@@ -156,7 +156,7 @@ class MenuLaporanKeuanganHeader extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('Pilih Menu Lapaoran Keuangan', style: textTheme.titleLarge),
+          Text('Pilih Menu Laporan Keuangan', style: textTheme.titleLarge),
           const SizedBox(height: 12),
           Row(
             // Tambahkan ini agar item tetap rapi di atas

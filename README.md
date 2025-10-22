@@ -79,3 +79,41 @@
 ![tambahpengeluaran](./assets/screenshot/tambah_pengeluaran.gif)
 
 ![tambahpengeluaran](./assets/screenshot/tambah_pengeluaran_isi.png)
+
+### Laporan Keuangan
+
+#### Semua Pemasukan
+
+![semuapemasukan](./assets/screenshot/semua_pemasukan.gif)
+
+#### Filter Pemasukan
+
+![filterpemasukan](./assets/screenshot/filter_semua_pemasukan.gif)
+
+#### Detail Pemasukan
+
+![detailpemasukan](./assets/screenshot/detail_pemasukan_all.gif)
+
+![detailpemasukan](./assets/screenshot/detail_pemasukan_all.png)
+
+#### Semua Pengeluaran
+
+![semuapengeluaran](./assets/screenshot/semua_pengeluaran.gif)
+
+#### Filter Pengeluaran
+
+![filterpengeluaran](./assets/screenshot/filter_semua_pengeluaran.gif)
+
+#### Detail Pengeluaran
+
+![detailpengeluaran](./assets/screenshot/detail_pengeluaran_all.gif)
+
+![detailpengeluaran](./assets/screenshot/detail_pengeluaran_all.png)
+
+#### Cetak Laporan Keuangan
+
+![cetaklaporan](./assets/screenshot/cetak_laporan.gif)
+
+![cetaklaporan](./assets/screenshot/cetak_laporan.png)
+
+![cetaklaporan](./assets/screenshot/cetak_laporan_isi.png)
