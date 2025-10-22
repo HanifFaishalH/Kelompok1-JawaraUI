@@ -47,6 +47,10 @@ import 'package:jawaramobile_1/screens/Broadcast/edit_broadcast.dart';
 import 'package:jawaramobile_1/screens/ManajemenPengguna/daftar_pengguna_screen.dart';
 import 'package:jawaramobile_1/screens/ManajemenPengguna/tambah_pengguna_screen.dart';
 
+// ====== Channel Transfer ======
+import 'package:jawaramobile_1/screens/ChannelTransfer/daftar_channel_screen.dart';
+import 'package:jawaramobile_1/screens/ChannelTransfer/tambah_channel_screen.dart';
+
 // ====== Lainnya ======
 import 'package:jawaramobile_1/screens/penerimaan_warga_screen.dart';
 import 'package:jawaramobile_1/screens/dashboard_aspirasi.dart';
@@ -250,16 +254,29 @@ final appRouter = GoRouter(
       name: 'manajemen-pengguna',
       builder: (context, state) => const DaftarPenggunaScreen(),
     ),
-    // GoRoute(
-    //   path: '/daftar-pengguna',
-    //   name: 'daftar-pengguna',
-    //   builder: (context, state) => const DaftarPenggunaScreen(),
-    // ),
+
     GoRoute(
       path: '/tambah-pengguna',
       name: 'tambah-pengguna',
       builder: (context, state) => const TambahPenggunaScreen(),
     ),
+
+    GoRoute(
+      path: '/daftar-channel',
+      name: 'daftar-channel',
+      builder: (context, state) => const DaftarChannelScreen(),
+    ),
+    GoRoute(
+      path: '/tambah-channel',
+      name: 'tambah-channel',
+      builder: (context, state) => const TambahChannelScreen(),
+    ),
+
+    GoRoute(
+    path: '/channel-transfer',
+    name: 'channel-transfer',
+    builder: (context, state) => const DaftarChannelScreen(), // arahkan ke daftar
+  ),
 
     // ====== Lain-lain ======
     GoRoute(

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:jawaramobile_1/widgets/submenu_keuangan.dart';
 import 'package:jawaramobile_1/widgets/submenu_manajemen_pengguna.dart';
+import 'package:jawaramobile_1/widgets/submenu_channel_transfer.dart';
+
 
 class MenuScreen extends StatelessWidget {
   const MenuScreen({super.key});
@@ -82,11 +84,13 @@ class MenuScreen extends StatelessWidget {
         'title': 'Manajemen Pengguna',
         'action': () => showSubMenuManajemenPengguna(context), 
       },
+
       {
         'icon': Icons.wallet,
         'title': 'Channel Transfer',
-        'action': () => context.push('/channel-transfer'),
+        'action': () => showSubMenuChannelTransfer(context),
       },
+
     ];
 
     return Scaffold(
