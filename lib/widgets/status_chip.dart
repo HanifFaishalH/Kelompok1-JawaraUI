@@ -19,8 +19,8 @@ class StatusChip extends StatelessWidget {
       backgroundColor = Colors.yellow.shade200;
       foregroundColor = Colors.orange.shade900;
     } else {
-      backgroundColor = AppTheme.lightPurple.withOpacity(0.5);
-      foregroundColor = AppTheme.darkPurple;
+      backgroundColor = AppTheme.warmCream.withOpacity(0.5);
+      foregroundColor = AppTheme.primaryOrange;
     }
 
     return Container(
