@@ -6,7 +6,7 @@
 | :---------------------------- | :--------- | :---------------------------------------------------------- |
 | Adani Salsabila               | 2341720123 | Penerimaan Warga, Pesan Warga Informasi Aspirasi            |
 | Dio Andika Pradana Mulia Tama | 2341720098 | Menu Pengeluaran, Laporan Keuangan, Kegiatan & Broadcast    |
-| Gabriel Batavia Xaverius      | 2341720184 | ---------                                                   |
+| Gabriel Batavia Xaverius      | 2341720184 | Menu LogActivity, Menu ManjamenPengguna, Menu ChannelTransfer                                                |
 | Hanif Faisal Hilmi            | 2341720116 | Dashboard Homescreen, Data Warga dan Rumah, Mutasi Keluarga |
 | Muhammad Nur Aziz             | 2341720237 | Login, Register Page, Menu Pemasukan                        |
 
@@ -159,3 +159,15 @@
 ![filter_aspirasi](./assets/screenshot/filter_aspirasi.png)
 ![filter_aspirasi2](./assets/screenshot/filter_aspirasi2.png)
 ![filter_aspirasi3](./assets/screenshot/filter_aspirasi3.png)
+
+
+
+#### LogActiviy
+![LogActivity](./assets/screenshot/logactivity.gif)
+
+#### Manajamen Pengguna
+![ManjamenPengguna](./assets/screenshot/manajemenpengguna.gif)
+
+#### Channel Tranfer
+
+![ChannelTransfer](./assets/screenshot/channeltransfer.gif)
