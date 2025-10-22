@@ -65,6 +65,7 @@ class _PengeluaranFilterState extends State<PengeluaranFilter> {
         DropdownButtonFormField<String>(
           value: selectedKategori,
           hint: const Text("Pilih Kategori"),
+          isExpanded: true,
           decoration: InputDecoration(
             labelText: "Kategori",
             border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
