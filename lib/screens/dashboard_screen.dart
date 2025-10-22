@@ -16,7 +16,7 @@ class DashboardScreen extends StatelessWidget {
     return Scaffold(
       // Aktifkan agar body bisa “tembus” ke bawah navigation bar yang melayang
       extendBody: true,
-      backgroundColor: colorScheme.background,
+      backgroundColor: colorScheme.onPrimary,
 
       body: SafeArea(
         child: Stack(
