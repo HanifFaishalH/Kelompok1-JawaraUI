@@ -12,29 +12,36 @@ class PengeluaranScreen extends StatelessWidget {
     {
       "no": "1",
       "nama": "Beli Sapu",
-      "jenis": "Kebersihan",
-      "tanggal": "18 Okt 2025",
+      "kategori": "Keamanan & Kebersihan",
+      "tanggal": "22 Oktober 2025",
       "nominal": "Rp 25.000",
     },
     {
       "no": "2",
-      "nama": "Bayar Listrik",
-      "jenis": "Tagihan",
-      "tanggal": "17 Okt 2025",
+      "nama": "Perbaikan Lampu Jalan",
+      "kategori": "Pemeliharaan Fasilitas",
+      "tanggal": "17 Oktober 2025",
       "nominal": "Rp 150.000",
     },
     {
       "no": "3",
-      "nama": "Iuran Keamanan",
-      "jenis": "Wajib",
-      "tanggal": "15 Okt 2025",
+      "nama": "Santunan anak Yatim",
+      "kategori": "Kegiatan Sosial",
+      "tanggal": "15 Oktober 2025",
       "nominal": "Rp 50.000",
     },
     {
       "no": "4",
+      "nama": "Pembangunan Pos RW",
+      "kategori": "Pembangunan",
+      "tanggal": "11 September 2025",
+      "nominal": "Rp 320.000",
+    },
+    {
+      "no": "5",
       "nama": "Lomba 17an",
-      "jenis": "Acara",
-      "tanggal": "10 Agu 2025",
+      "kategori": "Kegiatan Warga",
+      "tanggal": "10 Agustus 2025",
       "nominal": "Rp 500.000",
     },
   ];
@@ -45,7 +52,7 @@ class PengeluaranScreen extends StatelessWidget {
       builder: (BuildContext context) {
         return AlertDialog(
           title: const Text("Filter Pengeluaran"),
-          content: const PengeluaranFilter(),
+          content: SingleChildScrollView(child: const PengeluaranFilter()),
           actions: <Widget>[
             TextButton(
               child: const Text("Batal"),
@@ -125,7 +132,7 @@ class PengeluaranScreen extends StatelessWidget {
             columns: const [
               DataColumn2(label: Text('No'), size: ColumnSize.S),
               DataColumn2(label: Text('Nama'), size: ColumnSize.L),
-              DataColumn2(label: Text('Jenis')),
+              DataColumn2(label: Text('kategori')),
               DataColumn2(label: Text('Tanggal')),
               DataColumn2(label: Text('Nominal'), numeric: true),
               DataColumn2(
@@ -138,7 +145,7 @@ class PengeluaranScreen extends StatelessWidget {
                 cells: [
                   DataCell(Text(item['no']!)),
                   DataCell(Text(item['nama']!)),
-                  DataCell(Text(item['jenis']!)),
+                  DataCell(Text(item['kategori']!)),
                   DataCell(Text(item['tanggal']!)),
                   DataCell(
                     Text(

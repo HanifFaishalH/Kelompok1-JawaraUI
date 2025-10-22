@@ -32,7 +32,7 @@ class BroadcastScreen extends StatelessWidget {
       builder: (BuildContext context) {
         return AlertDialog(
           title: const Text("Filter Broadcast"),
-          content: const BroadcastFilter(),
+          content: SingleChildScrollView(child: const BroadcastFilter()),
           actions: <Widget>[
             TextButton(
               child: const Text("Batal"),

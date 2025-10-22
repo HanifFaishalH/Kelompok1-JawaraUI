@@ -11,24 +11,38 @@ class Pemasukan extends StatelessWidget {
   final List<Map<String, String>> _pemasukanData = const [
     {
       "no": "1",
-      "nama": "Iuran Warga",
-      "jenis": "Iuran",
-      "tanggal": "15 Okt 2025",
+      "nama": "Iuran Bulanan",
+      "jenis": "Iuran Warga",
+      "tanggal": "15 Oktober 2025",
       "nominal": "Rp 500.000",
     },
     {
       "no": "2",
       "nama": "Sumbangan Acara",
-      "jenis": "Sumbangan",
-      "tanggal": "14 Okt 2025",
+      "jenis": "Donasi",
+      "tanggal": "10 Oktober 2025",
       "nominal": "Rp 750.000",
     },
     {
       "no": "3",
       "nama": "Sewa Lapangan",
-      "jenis": "Sewa Aset",
+      "jenis": "Hasil Usaha Kampung",
       "tanggal": "12 Okt 2025",
       "nominal": "Rp 300.000",
+    },
+    {
+      "no": "4",
+      "nama": "Sewa Lapangan",
+      "jenis": "Hasil Usaha Kampung",
+      "tanggal": "12 Okt 2025",
+      "nominal": "Rp 300.000",
+    },
+    {
+      "no": "5",
+      "nama": "Bantuan Pemerintah",
+      "jenis": "Dana Bantuan Pemerintah",
+      "tanggal": "12 Okt 2025",
+      "nominal": "Rp 5.000.000",
     },
   ];
 
@@ -38,7 +52,7 @@ class Pemasukan extends StatelessWidget {
       builder: (BuildContext context) {
         return AlertDialog(
           title: const Text("Filter Pemasukan"),
-          content: const PemasukanFilter(),
+          content: SingleChildScrollView(child: const PemasukanFilter()),
           actions: <Widget>[
             TextButton(
               child: const Text("Batal"),

@@ -13,7 +13,7 @@ class KegiatanScreen extends StatelessWidget {
       "nama": "Kerja Bakti Bulanan",
       "kategori": "Kebersihan & Keamanan",
       "pj": "Pak RT",
-      "tanggal": "25 Okt 2025",
+      "tanggal": "21 Oktober 2025",
       "lokasi": "Lingkungan RT 05",
       "deskripsi": "Membersihkan selokan dan area umum.",
     },
@@ -21,10 +21,39 @@ class KegiatanScreen extends StatelessWidget {
       "no": "2",
       "nama": "Rapat Karang Taruna",
       "kategori": "Komunitas & Sosial",
-      "pj": "Ketua Karuna",
-      "tanggal": "22 Okt 2025",
-      "lokasi": "Balai Warga",
-      "deskripsi": "Membahas rencana kegiatan akhir tahun.",
+      "pj": "Ketua Karang Taruna",
+      "tanggal": "10 Oktober 2025",
+      "lokasi": "Balai Desa Kidal",
+      "deskripsi":
+          "Pembubaran panitia PHBN sekaligus membahas rencana kegiatan akhir tahun.",
+    },
+    {
+      "no": "3",
+      "nama": "Jalan Sehat",
+      "kategori": "Kesehatan & Olahraga",
+      "pj": "Karang Taruna",
+      "tanggal": "30 September 2025",
+      "lokasi": "Lapangan SD Negeri Kidal",
+      "deskripsi": "Jalan sehat, senam, dan pembagian doorprize.",
+    },
+    {
+      "no": "4",
+      "nama": "Upacara 17 Agustus",
+      "kategori": "Komunitas & Sosial",
+      "pj": "Karang Taruna",
+      "tanggal": "17 Agustus 2025",
+      "lokasi": "Candi Kidal",
+      "deskripsi":
+          "Upacara peringatan detik-detik proklamasi kemerdekaan Republik Indonesia.",
+    },
+    {
+      "no": "5",
+      "nama": "Seminar Warga",
+      "kategori": "Pendidikan",
+      "pj": "Kepala Desa",
+      "tanggal": "17 Juli 2025",
+      "lokasi": "Balai Desa Kidal",
+      "deskripsi": "Seminar tentang bahaya judi online.",
     },
   ];
 
@@ -34,7 +63,7 @@ class KegiatanScreen extends StatelessWidget {
       builder: (BuildContext context) {
         return AlertDialog(
           title: const Text("Filter Kegiatan"),
-          content: const KegiatanFilter(),
+          content: SingleChildScrollView(child: const KegiatanFilter()),
           actions: <Widget>[
             TextButton(
               child: const Text("Batal"),
