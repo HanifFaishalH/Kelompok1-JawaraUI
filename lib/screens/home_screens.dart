@@ -41,7 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
           borderRadius: BorderRadius.circular(30.0),
           child: BottomNavigationBar(
             backgroundColor: Colors.white,
-            selectedItemColor: AppTheme.brightPurple,
+            selectedItemColor: AppTheme.highlightYellow,
             unselectedItemColor: Colors.grey,
             currentIndex: _selectedIndex,
             onTap: (index) => setState(() => _selectedIndex = index),

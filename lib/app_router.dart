@@ -292,10 +292,11 @@ final appRouter = GoRouter(
     ),
 
     GoRoute(
-    path: '/channel-transfer',
-    name: 'channel-transfer',
-    builder: (context, state) => const DaftarChannelScreen(), // arahkan ke daftar
-  ),
+      path: '/channel-transfer',
+      name: 'channel-transfer',
+      builder: (context, state) =>
+          const DaftarChannelScreen(), // arahkan ke daftar
+    ),
 
     // ====== Lain-lain ======
     GoRoute(
@@ -320,8 +321,8 @@ final appRouter = GoRouter(
     ),
     GoRoute(
       path: '/dashboard-aspirasi',
-      name: 'dashboard-aspirasi', 
+      name: 'dashboard-aspirasi',
       builder: (context, state) => const DashboardAspirasi(),
-      ),
-      ], 
+    ),
+  ],
 );
