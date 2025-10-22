@@ -38,7 +38,7 @@
 
 #### Tagih Iuran
 
-![tagih](./assets/screenshot/tambah_pengeluaran.gif)
+![tagih](./assets/screenshot/tagihan_iuran.gif)
 
 #### Daftar Tagihan
 
@@ -60,19 +60,22 @@
 
 #### Daftar Pengeluaran
 
-![kategoriiuran](./assets/screenshot/daftar_pengeluaran.gif)
+![daftarpengeluaran](./assets/screenshot/daftar_pengeluaran.gif)
 
 #### Filter Pengeluaran
 
-![kategoriiuran](./assets/screenshot/filter_pengeluaran.gif)
+![filterpengeluaran](./assets/screenshot/filter_pengeluaran.gif)
 
 #### Detail Pengeluaran
 
-![kategoriiuran](./assets/screenshot/detail_pengeluaran.gif)
-![kategoriiuran](./assets/screenshot/detail_pengeluaran.png)
+![detailpengeluaran](./assets/screenshot/detail_pengeluaran.gif)
+
+![detailpengeluaran](./assets/screenshot/detail_pengeluaran.png)
 
 #### Tambah Pengeluaran
 
-![tagih](./assets/screenshot/tambah_pengeluaran.png)
-![tagih](./assets/screenshot/tambah_pengeluaran.gif)
-![tagih](./assets/screenshot/tambah_pengeluaran_isi.png)
+![tambahpengeluaran](./assets/screenshot/tambah_pengeluaran.png)
+
+![tambahpengeluaran](./assets/screenshot/tambah_pengeluaran.gif)
+
+![tambahpengeluaran](./assets/screenshot/tambah_pengeluaran_isi.png)
