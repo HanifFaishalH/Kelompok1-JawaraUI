@@ -117,3 +117,31 @@
 ![cetaklaporan](./assets/screenshot/cetak_laporan.png)
 
 ![cetaklaporan](./assets/screenshot/cetak_laporan_isi.png)
+
+### Kegiatan
+
+#### Daftar Kegiatan
+
+![daftarkegiatan](./assets/screenshot/daftar_kegiatan.gif)
+
+#### Filter Kegiatan
+
+![filterkegiatan](./assets/screenshot/filter_kegiatan.gif)
+
+#### Detail Kegiatan
+
+![detailkegiatan](./assets/screenshot/detail_kegiatan.png)
+
+#### Tambah Kegiatan
+
+![tambahkegiatan](./assets/screenshot/tambah_kegiatan.gif)
+
+#### Edit Kegiatan
+
+![editkegiatan](./assets/screenshot/edit_kegiatan.gif)
+
+#### Hapus Kegiatan
+
+![hapuskegiatan](./assets/screenshot/hapus_kegiatan.gif)
+
+### Broadcast
