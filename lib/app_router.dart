@@ -43,6 +43,10 @@ import 'package:jawaramobile_1/screens/Broadcast/tambah_broadcast.dart';
 import 'package:jawaramobile_1/screens/Broadcast/detail_broadcast.dart';
 import 'package:jawaramobile_1/screens/Broadcast/edit_broadcast.dart';
 
+// ====== LogActivity ======
+import 'package:jawaramobile_1/screens/LogActivity/log_activity_screen.dart';
+import 'package:jawaramobile_1/screens/LogActivity/detail_log_activity_screen.dart';
+
 // ====== Manajemen Pengguna ======
 import 'package:jawaramobile_1/screens/ManajemenPengguna/daftar_pengguna_screen.dart';
 import 'package:jawaramobile_1/screens/ManajemenPengguna/tambah_pengguna_screen.dart';
@@ -249,6 +253,21 @@ final appRouter = GoRouter(
         return EditBroadcastScreen(broadcastData: data);
       },
     ),
+
+    GoRoute(
+      path: '/log-aktivitas',
+      name: 'log-aktivitas',
+      builder: (context, state) => const LogActivityScreen(),
+    ),
+    GoRoute(
+      path: '/detail-log-aktivitas',
+      name: 'detail-log-aktivitas',
+      builder: (context, state) {
+        final data = state.extra as Map<String, String>;
+        return DetailLogActivityScreen(logData: data);
+      },
+    ),
+
     GoRoute(
       path: '/manajemen-pengguna',
       name: 'manajemen-pengguna',
