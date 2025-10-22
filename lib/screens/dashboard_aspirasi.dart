@@ -20,14 +20,14 @@ class PesanWarga {
   });
 }
 
-class DashboardScreen extends StatefulWidget {
-  const DashboardScreen({super.key});
+class DashboardAspirasi extends StatefulWidget {
+  const DashboardAspirasi({super.key});
 
   @override
-  State<DashboardScreen> createState() => _DashboardScreenState();
+  State<DashboardAspirasi> createState() => _DashboardAspirasiState();
 }
 
-class _DashboardScreenState extends State<DashboardScreen> {
+class _DashboardAspirasiState extends State<DashboardAspirasi> {
   // Data simulasi
   final List<PesanWarga> _pesanList = [
     PesanWarga(no: 1, pengirim: 'Varizky Naldiba Rimra', judul: 'titootit', status: 'Diterima', tanggalDibuat: '16 Oktober 2025'),

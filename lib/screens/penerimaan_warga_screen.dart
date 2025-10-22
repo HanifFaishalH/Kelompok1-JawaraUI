@@ -10,9 +10,7 @@ class PermintaanAkun {
   final String email;
   final String jenisKelamin;
   final String fotoIdentitasUrl;
-  // Di sini kita tidak punya kolom Status seperti di aspirasi, 
-  // jadi kita asumsikan semua di sini adalah permintaan yang perlu diproses/Pending
-  // final String status; 
+  
 
   PermintaanAkun({
     required this.no,

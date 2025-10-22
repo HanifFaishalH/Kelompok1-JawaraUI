@@ -49,6 +49,7 @@ import 'package:jawaramobile_1/screens/ManajemenPengguna/tambah_pengguna_screen.
 
 // ====== Lainnya ======
 import 'package:jawaramobile_1/screens/penerimaan_warga_screen.dart';
+import 'package:jawaramobile_1/screens/dashboard_aspirasi.dart';
 
 final appRouter = GoRouter(
   initialLocation: '/login',
@@ -281,5 +282,10 @@ final appRouter = GoRouter(
         return MutasiDetailPage(data: data);
       },
     ),
-  ],
+    GoRoute(
+      path: '/dashboard-aspirasi',
+      name: 'dashboard-aspirasi', 
+      builder: (context, state) => const DashboardAspirasi(),
+      ),
+      ], 
 );

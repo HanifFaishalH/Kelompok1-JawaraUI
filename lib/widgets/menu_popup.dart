@@ -115,6 +115,11 @@ class _MenuPopUpContent extends StatelessWidget {
         'title': 'Channel Transfer',
         'action': () => context.push('/channel-transfer'),
       },
+      {
+        'icon': Icons.person_add_alt_1,
+        'title': 'Aspirasi',
+        'action': () => context.push('/dashboard-aspirasi'),
+      },
     ];
 
     return Material(
