@@ -4,7 +4,7 @@
 
 | Team Member                   | NIM        | Kontribusi                                                  |
 | :---------------------------- | :--------- | :---------------------------------------------------------- |
-| Adani Salsabila               | 2341720123 | ---------                                                   |
+| Adani Salsabila               | 2341720123 | Penerimaan Warga, Pesan Warga Informasi Aspirasi                                                |
 | Dio Andika Pradana Mulia Tama | 2341720098 | Menu Pengeluaran, Laporan Keuangan, Kegiatan & Broadcast    |
 | Gabriel Batavia Xaverius      | 2341720184 | ---------                                                   |
 | Hanif Faisal Hilmi            | 2341720116 | Dashboard Homescreen, Data Warga dan Rumah, Mutasi Keluarga |
@@ -117,3 +117,17 @@
 ![cetaklaporan](./assets/screenshot/cetak_laporan.png)
 
 ![cetaklaporan](./assets/screenshot/cetak_laporan_isi.png)
+
+#### Penerimaan Warga
+
+![penerimaanwarga](./assets/screenshot/penerimaanwarga.png)
+![filter_penerimaanwarga](./assets/screenshot/filter_penerimaanwarga.png)
+![filter_penerimaanwarga2](./assets/screenshot/filter_penerimaanwarga2.png)
+![filter_penerimaanwarga3](./assets/screenshot/filter_penerimaanwarga3.png)
+
+#### Pesan Warga - Aspirasi
+
+![dashboard_aspirasi](./assets/screenshot/dashboard_aspirasi.png)
+![filter_aspirasi](./assets/screenshot/filter_aspirasi.png)
+![filter_aspirasi2](./assets/screenshot/filter_aspirasi2.png)
+![filter_aspirasi3](./assets/screenshot/filter_aspirasi3.png)
