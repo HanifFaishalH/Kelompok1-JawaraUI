@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'mutasi_detail_page.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class MutasiPage extends StatelessWidget {
   final List<Map<String, dynamic>> dataMutasi = [
@@ -45,12 +45,16 @@ class MutasiPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
     return Scaffold(
+      backgroundColor: colorScheme.onPrimary,
       appBar: AppBar(
         title: const Text("Daftar Mutasi Warga"),
-        backgroundColor: Colors.deepPurple,
+        backgroundColor: colorScheme.primary,
       ),
       body: SingleChildScrollView(
+        padding: EdgeInsets.all(20),
         scrollDirection: Axis.horizontal,
         child: DataTable(
           headingRowColor: WidgetStateProperty.all(Colors.grey.shade200),
@@ -82,7 +86,7 @@ class MutasiPage extends StatelessWidget {
                 ),
                 DataCell(
                   IconButton(
-                    icon: const Icon(Icons.more_horiz),
+                    icon: const FaIcon(FontAwesomeIcons.eye),
                     onPressed: () {
                       context.pushNamed(
                         'mutasi-detail',

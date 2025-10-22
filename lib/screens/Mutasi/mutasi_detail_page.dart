@@ -7,7 +7,9 @@ class MutasiDetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
     return Scaffold(
+      backgroundColor: colorScheme.onPrimary,
       appBar: AppBar(
         title: const Text("Detail Mutasi Warga"),
         backgroundColor: Colors.deepPurple,
