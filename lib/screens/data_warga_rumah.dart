@@ -38,7 +38,7 @@ class _DataWargaPageState extends State<DataWargaPage>
         ),
         centerTitle: true,
         backgroundColor: colorScheme.primary,
-        foregroundColor: Colors.white,
+        foregroundColor: colorScheme.onPrimary,
       ),
       backgroundColor: colorScheme.surface,
       body: Column(

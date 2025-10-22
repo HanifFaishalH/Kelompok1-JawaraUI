@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:data_table_2/data_table_2.dart'; // ✅ pastikan tambahkan di pubspec.yaml
 
 class TabelKeluarga extends StatelessWidget {
   const TabelKeluarga({super.key});
@@ -18,36 +19,41 @@ class TabelKeluarga extends StatelessWidget {
       children: [
         Text(
           "Tabel Data Keluarga",
-          style: theme.textTheme.titleLarge?.copyWith(color: colorScheme.primary),
+          style: theme.textTheme.titleLarge?.copyWith(
+            color: colorScheme.primary,
+            fontWeight: FontWeight.bold,
+          ),
         ),
-        const SizedBox(height: 8),
+        const SizedBox(height: 12),
         Card(
-          margin: const EdgeInsets.symmetric(vertical: 8), // 🔹 Tambahkan margin di sini
+          color: colorScheme.surface,
           elevation: 3,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
           child: Padding(
-            padding: const EdgeInsets.all(8), // 🔹 Sedikit ruang di dalam Card
-            child: SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: DataTable(
-                headingRowColor: WidgetStateProperty.all(colorScheme.primaryContainer),
-                headingTextStyle: theme.textTheme.titleSmall
-                    ?.copyWith(color: colorScheme.onPrimaryContainer),
-                columns: const [
-                  DataColumn(label: Text("Nama Keluarga")),
-                  DataColumn(label: Text("Jumlah Anggota")),
-                  DataColumn(label: Text("Alamat")),
-                ],
-                rows: keluarga
-                    .map(
-                      (k) => DataRow(cells: [
-                    DataCell(Text(k["nama_keluarga"])),
-                    DataCell(Text("${k["jumlah_anggota"]}")),
-                    DataCell(Text(k["alamat"])),
-                  ]),
-                )
-                    .toList(),
-              ),
+            padding: const EdgeInsets.all(12),
+            child: DataTable2(
+              columnSpacing: 12,
+              horizontalMargin: 12,
+              minWidth: 0, // biar otomatis sesuai lebar layar
+              headingRowColor: WidgetStateProperty.all(colorScheme.primaryContainer),
+              headingTextStyle: theme.textTheme.titleSmall
+                  ?.copyWith(color: colorScheme.onPrimaryContainer),
+              columns: const [
+                DataColumn2(label: Text("Nama Keluarga"), size: ColumnSize.L),
+                DataColumn2(label: Text("Jumlah Anggota"), size: ColumnSize.S),
+                DataColumn2(label: Text("Alamat"), size: ColumnSize.L),
+              ],
+              rows: keluarga.map(
+                    (k) {
+                  return DataRow(
+                    cells: [
+                      DataCell(Text(k["nama_keluarga"], style: theme.textTheme.bodyMedium)),
+                      DataCell(Text("${k["jumlah_anggota"]}", style: theme.textTheme.bodyMedium)),
+                      DataCell(Text(k["alamat"], style: theme.textTheme.bodyMedium)),
+                    ],
+                  );
+                },
+              ).toList(),
             ),
           ),
         ),
