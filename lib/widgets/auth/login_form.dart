@@ -20,6 +20,7 @@ class LoginForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
     return Container(
       padding: const EdgeInsets.all(24),
       decoration: BoxDecoration(
@@ -108,8 +109,8 @@ class LoginForm extends StatelessWidget {
               child: ElevatedButton(
                 onPressed: onLogin,
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFF6D28D9),
-                  foregroundColor: Colors.white,
+                  backgroundColor: colorScheme.primary,
+                  foregroundColor: colorScheme.onPrimary,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8),
                   ),

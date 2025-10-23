@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 class AppTheme {
   // 🎨 Palet Warna
-  static const Color primaryOrange = Color(0xFFF57C00); // Tombol utama, header
-  static const Color highlightYellow = Color(0xFFFFCA28); // Aksen
+  static const Color primaryOrange = Color(0xFFFF8100); // Tombol utama, header
+  static const Color highlightYellow = Color(0xFFFFE381); // Aksen
   static const Color warmCream = Color(0xFFFFFDE7); // Background
   static const Color darkBrown = Color(0xFF4E342E); // Teks utama
 
