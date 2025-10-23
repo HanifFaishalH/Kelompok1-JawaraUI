@@ -107,7 +107,7 @@ class PemasukanLain extends StatelessWidget {
           child: DataTable2(
             columnSpacing: 12,
             horizontalMargin: 12,
-            minWidth: 600,
+            minWidth: 300,
             headingRowColor: MaterialStateProperty.all(
               theme.colorScheme.primary.withOpacity(0.1),
             ),
@@ -116,23 +116,30 @@ class PemasukanLain extends StatelessWidget {
               color: theme.colorScheme.secondary,
             ),
             columns: const [
-              DataColumn2(label: Text('No'), size: ColumnSize.S),
+              DataColumn2(label: Text('No'), size: ColumnSize.M),
               DataColumn2(label: Text('Nama'), size: ColumnSize.L),
-              DataColumn2(label: Text('Jenis')),
-              DataColumn2(label: Text('Tanggal')),
-              DataColumn2(label: Text('Nominal'), numeric: true),
+              // DataColumn2(label: Text('Jenis')),
+              // DataColumn2(label: Text('Tanggal')),
               DataColumn2(
-                label: Center(child: Text('Aksi')),
+                label: Text('Nominal'),
+                numeric: true,
                 size: ColumnSize.L,
               ),
+              // DataColumn2(
+              //   label: Center(child: Text('Aksi')),
+              //   size: ColumnSize.L,
+              // ),
             ],
             rows: _pemasukanData.map((item) {
-              return DataRow(
+              return DataRow2(
+                onTap: () {
+                  context.push('/detail-pemasukan-all', extra: item);
+                },
                 cells: [
                   DataCell(Text(item['no']!)),
                   DataCell(Text(item['nama']!)),
-                  DataCell(Text(item['jenis']!)),
-                  DataCell(Text(item['tanggal']!)),
+                  // DataCell(Text(item['jenis']!)),
+                  // DataCell(Text(item['tanggal']!)),
                   DataCell(
                     Text(
                       item['nominal']!,
@@ -142,23 +149,23 @@ class PemasukanLain extends StatelessWidget {
                       ),
                     ),
                   ),
-                  DataCell(
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        IconButton(
-                          icon: Icon(
-                            Icons.remove_red_eye,
-                            size: 20,
-                            color: theme.colorScheme.primary,
-                          ),
-                          onPressed: () {
-                            context.push('/detail-pemasukan-all', extra: item);
-                          },
-                        ),
-                      ],
-                    ),
-                  ),
+                  // DataCell(
+                  //   Row(
+                  //     mainAxisAlignment: MainAxisAlignment.center,
+                  //     children: [
+                  //       IconButton(
+                  //         icon: Icon(
+                  //           Icons.remove_red_eye,
+                  //           size: 20,
+                  //           color: theme.colorScheme.primary,
+                  //         ),
+                  //         onPressed: () {
+                  //           context.push('/detail-pemasukan-all', extra: item);
+                  //         },
+                  //       ),
+                  //     ],
+                  //   ),
+                  // ),
                 ],
               );
             }).toList(),

@@ -61,7 +61,7 @@ class IuranTable extends StatelessWidget {
       child: DataTable2(
         columnSpacing: 12,
         horizontalMargin: 12,
-        minWidth: 500,
+        minWidth: 300,
         headingRowColor: MaterialStateProperty.all(
           theme.colorScheme.primary.withOpacity(0.1),
         ),
@@ -72,19 +72,24 @@ class IuranTable extends StatelessWidget {
         columns: const [
           DataColumn2(label: Text('No'), size: ColumnSize.S),
           DataColumn2(label: Text('Nama'), size: ColumnSize.L),
-          DataColumn2(label: Text('Jenis')),
-          DataColumn2(label: Text('Nominal'), numeric: true),
+          // DataColumn2(label: Text('Jenis')),
           DataColumn2(
-            label: Center(child: Text('Aksi')),
+            label: Text('Nominal'),
+            numeric: true,
             size: ColumnSize.L,
           ),
+          // DataColumn2(
+          //   label: Center(child: Text('Aksi')),
+          //   size: ColumnSize.L,
+          // ),
         ],
         rows: kategoriIuran.map((item) {
-          return DataRow(
+          return DataRow2(
+            onTap: () => onViewPressed(item),
             cells: [
               DataCell(Text(item['no']!)),
               DataCell(Text(item['nama']!)),
-              DataCell(Text(item['jenis']!)),
+              // DataCell(Text(item['jenis']!)),
               DataCell(
                 Text(
                   item['nominal']!,
@@ -94,7 +99,7 @@ class IuranTable extends StatelessWidget {
                   ),
                 ),
               ),
-              DataCell(_buildActionButtons(item, theme)),
+              // DataCell(_buildActionButtons(item, theme), onTap: null),
             ],
           );
         }).toList(),
