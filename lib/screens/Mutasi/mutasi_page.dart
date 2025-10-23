@@ -6,98 +6,117 @@ class MutasiPage extends StatelessWidget {
   final List<Map<String, dynamic>> dataMutasi = [
     {
       "no": 1,
-      "tanggal": "15 Oktober 2025",
       "keluarga": "Keluarga Ijat",
+      "tanggal": "15 Oktober 2025",
       "jenis": "Keluar Wilayah",
-      "alasan": "Karena mau keluar",
-      "alamatLama": "i",
-      "alamatBaru": "-",
     },
     {
       "no": 2,
-      "tanggal": "30 September 2025",
       "keluarga": "Keluarga Mara Nunez",
+      "tanggal": "30 September 2025",
       "jenis": "Pindah Rumah",
-      "alasan": "Pindah ke rumah baru",
-      "alamatLama": "Jl. Kenangan No. 5",
-      "alamatBaru": "Jl. Damai No. 9",
     },
     {
       "no": 3,
-      "tanggal": "24 Oktober 2026",
       "keluarga": "Keluarga Ijat",
+      "tanggal": "24 Oktober 2026",
       "jenis": "Pindah Rumah",
-      "alasan": "Dekat tempat kerja",
-      "alamatLama": "Jl. Raya",
-      "alamatBaru": "Jl. Baru",
     },
   ];
-
-  Color _getChipColor(String jenis) {
-    if (jenis == "Keluar Wilayah") return Colors.red.shade100;
-    return Colors.green.shade100;
-  }
-
-  Color _getTextColor(String jenis) {
-    if (jenis == "Keluar Wilayah") return Colors.red.shade800;
-    return Colors.green.shade800;
-  }
 
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
 
     return Scaffold(
-      backgroundColor: colorScheme.onPrimary,
+      backgroundColor: colorScheme.surface,
       appBar: AppBar(
-        title: const Text("Daftar Mutasi Warga"),
         backgroundColor: colorScheme.primary,
+        elevation: 0,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Colors.white),
+          onPressed: () => context.pop(),
+        ),
+        title: const Text(
+          "Daftar Mutasi Warga",
+          style: TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        centerTitle: true,
       ),
-      body: SingleChildScrollView(
-        padding: EdgeInsets.all(20),
-        scrollDirection: Axis.horizontal,
-        child: DataTable(
-          headingRowColor: WidgetStateProperty.all(Colors.grey.shade200),
-          columns: const [
-            DataColumn(label: Text("NO")),
-            DataColumn(label: Text("TANGGAL")),
-            DataColumn(label: Text("KELUARGA")),
-            DataColumn(label: Text("JENIS MUTASI")),
-            DataColumn(label: Text("AKSI")),
-          ],
-          rows: dataMutasi.map((item) {
-            return DataRow(
-              cells: [
-                DataCell(Text(item['no'].toString())),
-                DataCell(Text(item['tanggal'])),
-                DataCell(Text(item['keluarga'])),
-                DataCell(
-                  Container(
-                    decoration: BoxDecoration(
-                      color: _getChipColor(item['jenis']),
-                      borderRadius: BorderRadius.circular(20),
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: LayoutBuilder(
+            builder: (context, constraints) {
+              return Container(
+                width: constraints.maxWidth,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(12),
+                  boxShadow: const [
+                    BoxShadow(
+                      color: Colors.black12,
+                      blurRadius: 4,
+                      offset: Offset(0, 2),
                     ),
-                    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                    child: Text(
-                      item['jenis'],
-                      style: TextStyle(color: _getTextColor(item['jenis'])),
+                  ],
+                ),
+                child: DataTableTheme(
+                  data: DataTableThemeData(
+                    headingRowColor: WidgetStateProperty.all(
+                      colorScheme.primary.withOpacity(0.1),
+                    ),
+                    dataRowColor: WidgetStateProperty.all(Colors.transparent),
+                  ),
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.vertical,
+                    child: DataTable(
+                      columnSpacing: 0,
+                      horizontalMargin: 16,
+                      headingTextStyle: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                      ),
+                      columns: const [
+                        DataColumn(label: Text("No")),
+                        DataColumn(label: Text("Nama Keluarga")),
+                        DataColumn(label: Text("Aksi")),
+                      ],
+                      rows: dataMutasi.map((item) {
+                        return DataRow(
+                          cells: [
+                            DataCell(Text(item['no'].toString())),
+                            DataCell(Text(item['keluarga'])),
+                            DataCell(
+                              Align(
+                                alignment: Alignment.centerLeft,
+                                child: IconButton(
+                                  icon: const FaIcon(
+                                    FontAwesomeIcons.eye,
+                                    size: 18,
+                                    color: Colors.blueGrey,
+                                  ),
+                                  tooltip: 'Lihat Detail',
+                                  onPressed: () {
+                                    context.pushNamed(
+                                      'mutasi-detail',
+                                      extra: item,
+                                    );
+                                  },
+                                ),
+                              ),
+                            ),
+                          ],
+                        );
+                      }).toList(),
                     ),
                   ),
                 ),
-                DataCell(
-                  IconButton(
-                    icon: const FaIcon(FontAwesomeIcons.eye),
-                    onPressed: () {
-                      context.pushNamed(
-                        'mutasi-detail',
-                        extra: item
-                      );
-                    },
-                  ),
-                ),
-              ],
-            );
-          }).toList(),
+              );
+            },
+          ),
         ),
       ),
     );

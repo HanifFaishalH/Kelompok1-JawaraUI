@@ -1,4 +1,3 @@
-import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:jawaramobile_1/widgets/kegiatan/kegiatan_filter.dart';
@@ -6,75 +5,29 @@ import 'package:jawaramobile_1/widgets/kegiatan/kegiatan_filter.dart';
 class KegiatanScreen extends StatelessWidget {
   const KegiatanScreen({super.key});
 
-  // Data dummy
-  final List<Map<String, String>> _kegiatanData = const [
-    {
-      "no": "1",
-      "nama": "Kerja Bakti Bulanan",
-      "kategori": "Kebersihan & Keamanan",
-      "pj": "Pak RT",
-      "tanggal": "21 Oktober 2025",
-      "lokasi": "Lingkungan RT 05",
-      "deskripsi": "Membersihkan selokan dan area umum.",
-    },
-    {
-      "no": "2",
-      "nama": "Rapat Karang Taruna",
-      "kategori": "Komunitas & Sosial",
-      "pj": "Ketua Karang Taruna",
-      "tanggal": "10 Oktober 2025",
-      "lokasi": "Balai Desa Kidal",
-      "deskripsi":
-          "Pembubaran panitia PHBN sekaligus membahas rencana kegiatan akhir tahun.",
-    },
-    {
-      "no": "3",
-      "nama": "Jalan Sehat",
-      "kategori": "Kesehatan & Olahraga",
-      "pj": "Karang Taruna",
-      "tanggal": "30 September 2025",
-      "lokasi": "Lapangan SD Negeri Kidal",
-      "deskripsi": "Jalan sehat, senam, dan pembagian doorprize.",
-    },
-    {
-      "no": "4",
-      "nama": "Upacara 17 Agustus",
-      "kategori": "Komunitas & Sosial",
-      "pj": "Karang Taruna",
-      "tanggal": "17 Agustus 2025",
-      "lokasi": "Candi Kidal",
-      "deskripsi":
-          "Upacara peringatan detik-detik proklamasi kemerdekaan Republik Indonesia.",
-    },
-    {
-      "no": "5",
-      "nama": "Seminar Warga",
-      "kategori": "Pendidikan",
-      "pj": "Kepala Desa",
-      "tanggal": "17 Juli 2025",
-      "lokasi": "Balai Desa Kidal",
-      "deskripsi": "Seminar tentang bahaya judi online.",
-    },
+  static final List<Map<String, String>> kegiatanData = [
+    {"no": "1", "nama": "Kerja Bakti Bulanan"},
+    {"no": "2", "nama": "Rapat Karang Taruna"},
+    {"no": "3", "nama": "Jalan Sehat"},
+    {"no": "4", "nama": "Upacara 17 Agustus"},
+    {"no": "5", "nama": "Seminar Warga"},
   ];
 
   void _showFilterDialog(BuildContext context) {
     showDialog(
       context: context,
-      builder: (BuildContext context) {
+      builder: (context) {
         return AlertDialog(
           title: const Text("Filter Kegiatan"),
-          content: SingleChildScrollView(child: const KegiatanFilter()),
-          actions: <Widget>[
+          content: const SingleChildScrollView(child: KegiatanFilter()),
+          actions: [
             TextButton(
+              onPressed: () => Navigator.pop(context),
               child: const Text("Batal"),
-              onPressed: () => Navigator.of(context).pop(),
             ),
             ElevatedButton(
+              onPressed: () => Navigator.pop(context),
               child: const Text("Cari"),
-              onPressed: () {
-                // TODO: Tambahkan logika filter
-                Navigator.of(context).pop();
-              },
             ),
           ],
         );
@@ -85,7 +38,7 @@ class KegiatanScreen extends StatelessWidget {
   void _showDeleteConfirmation(BuildContext context) {
     showDialog(
       context: context,
-      builder: (BuildContext dialogContext) {
+      builder: (dialogContext) {
         return AlertDialog(
           title: const Text("Konfirmasi Hapus"),
           content: const Text(
@@ -102,9 +55,7 @@ class KegiatanScreen extends StatelessWidget {
               ),
               child: const Text("Hapus"),
               onPressed: () {
-                // TODO: Implementasikan logika untuk menghapus data dari database/server
                 Navigator.of(dialogContext).pop();
-                context.pop(); // Kembali ke halaman daftar kegiatan
                 ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(content: Text('Kegiatan berhasil dihapus')),
                 );
@@ -119,24 +70,26 @@ class KegiatanScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final colorScheme = Theme.of(context).colorScheme;
+    final colorScheme = theme.colorScheme;
 
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: colorScheme.surface,
       appBar: AppBar(
         backgroundColor: colorScheme.primary,
         elevation: 0,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Colors.white),
+          onPressed: () => context.pop(), // ✅ bisa kembali
+        ),
         title: Text(
           "Kegiatan",
           style: theme.textTheme.titleLarge?.copyWith(
-            color: theme.colorScheme.onPrimary,
+            color: colorScheme.onPrimary,
           ),
         ),
-        iconTheme: IconThemeData(color: theme.colorScheme.onPrimary),
-        // Tambahkan tombol filter di sini
         actions: [
           IconButton(
-            icon: const Icon(Icons.filter_list),
+            icon: const Icon(Icons.filter_list, color: Colors.white),
             onPressed: () => _showFilterDialog(context),
           ),
         ],
@@ -145,87 +98,103 @@ class KegiatanScreen extends StatelessWidget {
         onPressed: () => context.push('/tambah-kegiatan'),
         child: const Icon(Icons.add),
       ),
-      body: Container(
-        margin: const EdgeInsets.all(16),
-        height: double.infinity,
-        width: double.infinity,
-        decoration: BoxDecoration(
-          color: Colors.white.withOpacity(0.95),
-          borderRadius: BorderRadius.circular(16),
-          boxShadow: const [
-            BoxShadow(
-              color: Colors.black12,
-              blurRadius: 8,
-              offset: Offset(0, 4),
-            ),
-          ],
-        ),
+      body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: DataTable2(
-            columnSpacing: 12,
-            horizontalMargin: 12,
-            minWidth: 700,
-            headingRowColor: MaterialStateProperty.all(
-              theme.colorScheme.primary.withOpacity(0.1),
-            ),
-            headingTextStyle: TextStyle(
-              fontWeight: FontWeight.bold,
-              color: theme.colorScheme.secondary,
-            ),
-            columns: const [
-              DataColumn2(label: Text('No'), size: ColumnSize.S),
-              DataColumn2(label: Text('Nama Kegiatan'), size: ColumnSize.L),
-              DataColumn2(label: Text('Penanggung Jawab'), size: ColumnSize.L),
-              DataColumn2(label: Text('Tanggal')),
-              DataColumn2(
-                label: Center(child: Text('Aksi')),
-                size: ColumnSize.L,
-              ),
-            ],
-            rows: _kegiatanData.map((item) {
-              return DataRow(
-                cells: [
-                  DataCell(Text(item['no']!)),
-                  DataCell(Text(item['nama']!)),
-                  DataCell(Text(item['pj']!)),
-                  DataCell(Text(item['tanggal']!)),
-                  DataCell(
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        IconButton(
-                          icon: Icon(
-                            Icons.remove_red_eye,
-                            size: 20,
-                            color: theme.colorScheme.primary,
-                          ),
-                          onPressed: () =>
-                              context.push('/detail-kegiatan', extra: item),
-                        ),
-                        IconButton(
-                          icon: Icon(
-                            Icons.edit,
-                            size: 20,
-                            color: Colors.orange.shade700,
-                          ),
-                          onPressed: () =>
-                              context.push('/edit-kegiatan', extra: item),
-                        ),
-                        IconButton(
-                          icon: Icon(
-                            Icons.delete,
-                            size: 20,
-                            color: theme.colorScheme.error,
-                          ),
-                          onPressed: () => _showDeleteConfirmation(context),
+          padding: const EdgeInsets.all(12),
+          child: LayoutBuilder(
+            builder: (context, constraints) {
+              return SingleChildScrollView(
+                scrollDirection: Axis.horizontal, // ✅ agar tabel bisa scroll
+                child: ConstrainedBox(
+                  constraints: BoxConstraints(
+                    minWidth: constraints.maxWidth, // ✅ tabel tetap lebar layar
+                  ),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(12),
+                      boxShadow: const [
+                        BoxShadow(
+                          color: Colors.black12,
+                          blurRadius: 4,
+                          offset: Offset(0, 2),
                         ),
                       ],
                     ),
+                    child: DataTable(
+                      columnSpacing: 24,
+                      headingRowColor: MaterialStateProperty.all(
+                        colorScheme.primary.withOpacity(0.1),
+                      ),
+                      headingTextStyle: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: colorScheme.onSurface,
+                      ),
+                      columns: const [
+                        DataColumn(label: Text('No')),
+                        DataColumn(label: Text('Nama Kegiatan')),
+                        DataColumn(label: Text('Aksi')),
+                      ],
+                      rows: kegiatanData.map((item) {
+                        return DataRow(
+                          cells: [
+                            DataCell(Text(item['no'] ?? '-')),
+                            DataCell(
+                              Text(
+                                item['nama'] ?? '-',
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
+                            DataCell(
+                              Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  IconButton(
+                                    iconSize: 20,
+                                    padding: EdgeInsets.zero,
+                                    constraints: const BoxConstraints(),
+                                    icon: const Icon(Icons.remove_red_eye),
+                                    tooltip: 'Lihat Detail',
+                                    onPressed: () => context.push(
+                                      '/detail-kegiatan',
+                                      extra: item,
+                                    ),
+                                  ),
+                                  const SizedBox(width: 8),
+                                  IconButton(
+                                    iconSize: 20,
+                                    padding: EdgeInsets.zero,
+                                    constraints: const BoxConstraints(),
+                                    icon: const Icon(Icons.edit,
+                                        color: Colors.orange),
+                                    tooltip: 'Edit',
+                                    onPressed: () => context.push(
+                                      '/edit-kegiatan',
+                                      extra: item,
+                                    ),
+                                  ),
+                                  const SizedBox(width: 8),
+                                  IconButton(
+                                    iconSize: 20,
+                                    padding: EdgeInsets.zero,
+                                    constraints: const BoxConstraints(),
+                                    icon: const Icon(Icons.delete,
+                                        color: Colors.red),
+                                    tooltip: 'Hapus',
+                                    onPressed: () =>
+                                        _showDeleteConfirmation(context),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        );
+                      }).toList(),
+                    ),
                   ),
-                ],
+                ),
               );
-            }).toList(),
+            },
           ),
         ),
       ),

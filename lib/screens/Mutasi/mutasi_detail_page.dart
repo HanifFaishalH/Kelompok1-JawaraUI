@@ -12,7 +12,7 @@ class MutasiDetailPage extends StatelessWidget {
       backgroundColor: colorScheme.onPrimary,
       appBar: AppBar(
         title: const Text("Detail Mutasi Warga"),
-        backgroundColor: Colors.deepPurple,
+        backgroundColor: colorScheme.primary,
       ),
       body: Padding(
         padding: const EdgeInsets.all(20),
