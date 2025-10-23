@@ -30,6 +30,7 @@ class RegisterForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
     return Container(
       padding: const EdgeInsets.all(24),
       decoration: BoxDecoration(
@@ -224,27 +225,27 @@ class RegisterForm extends StatelessWidget {
             ),
 
             // alamat label
-            const SizedBox(height: 20),
-            const Text(
-              'Alamat',
-              style: TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.w500,
-                color: Colors.black87,
-              ),
-            ),
-            // alamat input
-            const SizedBox(height: 8),
-            TextFormField(
-              controller: alamatController,
-              decoration: _inputDecoration('Masukkan alamat disini'),
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return 'Alamat tidak boleh kosong';
-                }
-                return null;
-              },
-            ),
+            // const SizedBox(height: 20),
+            // const Text(
+            //   'Alamat',
+            //   style: TextStyle(
+            //     fontSize: 14,
+            //     fontWeight: FontWeight.w500,
+            //     color: Colors.black87,
+            //   ),
+            // ),
+            // // alamat input
+            // const SizedBox(height: 8),
+            // TextFormField(
+            //   controller: alamatController,
+            //   decoration: _inputDecoration('Masukkan alamat disini'),
+            //   validator: (value) {
+            //     if (value == null || value.isEmpty) {
+            //       return 'Alamat tidak boleh kosong';
+            //     }
+            //     return null;
+            //   },
+            // ),
             // Register button
             const SizedBox(height: 24),
             SizedBox(
@@ -253,8 +254,8 @@ class RegisterForm extends StatelessWidget {
               child: ElevatedButton(
                 onPressed: onRegister,
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFF6D28D9),
-                  foregroundColor: Colors.white,
+                  backgroundColor: colorScheme.primary,
+                  foregroundColor: colorScheme.onPrimary,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8),
                   ),
