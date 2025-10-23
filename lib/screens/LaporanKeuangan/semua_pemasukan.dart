@@ -10,35 +10,30 @@ class Pemasukan extends StatelessWidget {
   // Data dummy
   final List<Map<String, String>> _pemasukanData = const [
     {
-      "no": "1",
       "nama": "Iuran Bulanan",
       "jenis": "Iuran Warga",
       "tanggal": "15 Oktober 2025",
       "nominal": "Rp 500.000",
     },
     {
-      "no": "2",
       "nama": "Sumbangan Acara",
       "jenis": "Donasi",
       "tanggal": "10 Oktober 2025",
       "nominal": "Rp 750.000",
     },
     {
-      "no": "3",
       "nama": "Sewa Lapangan",
       "jenis": "Hasil Usaha Kampung",
       "tanggal": "12 Okt 2025",
       "nominal": "Rp 300.000",
     },
     {
-      "no": "4",
       "nama": "Sewa Lapangan",
       "jenis": "Hasil Usaha Kampung",
       "tanggal": "12 Okt 2025",
       "nominal": "Rp 300.000",
     },
     {
-      "no": "5",
       "nama": "Bantuan Pemerintah",
       "jenis": "Dana Bantuan Pemerintah",
       "tanggal": "12 Okt 2025",
@@ -117,7 +112,6 @@ class Pemasukan extends StatelessWidget {
           child: DataTable2(
             columnSpacing: 12,
             horizontalMargin: 12,
-            minWidth: 600,
             headingRowColor: MaterialStateProperty.all(
               theme.colorScheme.primary.withOpacity(0.1),
             ),
@@ -126,23 +120,16 @@ class Pemasukan extends StatelessWidget {
               color: theme.colorScheme.secondary,
             ),
             columns: const [
-              DataColumn2(label: Text('No'), size: ColumnSize.S),
-              DataColumn2(label: Text('Nama'), size: ColumnSize.L),
-              DataColumn2(label: Text('Jenis')),
-              DataColumn2(label: Text('Tanggal')),
+              DataColumn2(label: Text('Nama')),
               DataColumn2(label: Text('Nominal'), numeric: true),
-              DataColumn2(
-                label: Center(child: Text('Aksi')),
-                size: ColumnSize.L,
-              ),
             ],
             rows: _pemasukanData.map((item) {
-              return DataRow(
+              return DataRow2(
+                onTap: () {
+                  context.push('/detail-pemasukan-all', extra: item);
+                },
                 cells: [
-                  DataCell(Text(item['no']!)),
                   DataCell(Text(item['nama']!)),
-                  DataCell(Text(item['jenis']!)),
-                  DataCell(Text(item['tanggal']!)),
                   DataCell(
                     Text(
                       item['nominal']!,
@@ -150,23 +137,6 @@ class Pemasukan extends StatelessWidget {
                         color: Colors.green[700],
                         fontWeight: FontWeight.bold,
                       ),
-                    ),
-                  ),
-                  DataCell(
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        IconButton(
-                          icon: Icon(
-                            Icons.remove_red_eye,
-                            size: 20,
-                            color: theme.colorScheme.primary,
-                          ),
-                          onPressed: () {
-                            context.push('/detail-pemasukan-all', extra: item);
-                          },
-                        ),
-                      ],
                     ),
                   ),
                 ],

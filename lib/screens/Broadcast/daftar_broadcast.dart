@@ -9,7 +9,6 @@ class BroadcastScreen extends StatelessWidget {
   // Data dummy
   final List<Map<String, String>> _broadcastData = const [
     {
-      "no": "1",
       "pengirim": "Ahmad Suhendra",
       "judul": "Pemberitahuan Kerja Bakti",
       "isi":
@@ -17,7 +16,6 @@ class BroadcastScreen extends StatelessWidget {
       "tanggal": "18 Okt 2025",
     },
     {
-      "no": "2",
       "pengirim": "Siti Aminah",
       "judul": "Undangan Rapat Warga",
       "isi":
@@ -134,7 +132,6 @@ class BroadcastScreen extends StatelessWidget {
           child: DataTable2(
             columnSpacing: 12,
             horizontalMargin: 12,
-            minWidth: 700,
             headingRowColor: MaterialStateProperty.all(
               theme.colorScheme.primary.withOpacity(0.1),
             ),
@@ -143,55 +140,17 @@ class BroadcastScreen extends StatelessWidget {
               color: theme.colorScheme.secondary,
             ),
             columns: const [
-              DataColumn2(label: Text('No'), size: ColumnSize.S),
-              DataColumn2(label: Text('Pengirim'), size: ColumnSize.L),
-              DataColumn2(label: Text('Judul'), size: ColumnSize.L),
-              DataColumn2(label: Text('Tanggal')),
-              DataColumn2(
-                label: Center(child: Text('Aksi')),
-                size: ColumnSize.L,
-              ),
+              DataColumn2(label: Text('Judul')),
+              DataColumn2(label: Text('Pengirim')),
             ],
             rows: _broadcastData.map((item) {
-              return DataRow(
+              return DataRow2(
+                onTap: () {
+                  context.push('/detail-broadcast', extra: item);
+                },
                 cells: [
-                  DataCell(Text(item['no']!)),
-                  DataCell(Text(item['pengirim']!)),
                   DataCell(Text(item['judul']!)),
-                  DataCell(Text(item['tanggal']!)),
-                  DataCell(
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        IconButton(
-                          icon: Icon(
-                            Icons.remove_red_eye,
-                            size: 20,
-                            color: theme.colorScheme.primary,
-                          ),
-                          onPressed: () =>
-                              context.push('/detail-broadcast', extra: item),
-                        ),
-                        IconButton(
-                          icon: Icon(
-                            Icons.edit,
-                            size: 20,
-                            color: Colors.orange.shade700,
-                          ),
-                          onPressed: () =>
-                              context.push('/edit-broadcast', extra: item),
-                        ),
-                        IconButton(
-                          icon: Icon(
-                            Icons.delete,
-                            size: 20,
-                            color: theme.colorScheme.error,
-                          ),
-                          onPressed: () => _showDeleteConfirmation(context),
-                        ),
-                      ],
-                    ),
-                  ),
+                  DataCell(Text(item['pengirim']!)),
                 ],
               );
             }).toList(),

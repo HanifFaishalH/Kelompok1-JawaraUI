@@ -178,7 +178,6 @@ class DetailKegiatanScreen extends StatelessWidget {
                       child: const Center(child: Icon(Icons.image)),
                     ),
                   ),
-                  const SizedBox(height: 24),
                 ],
               ),
               const SizedBox(height: 40),

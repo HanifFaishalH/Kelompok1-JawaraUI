@@ -10,35 +10,30 @@ class Pengeluaran extends StatelessWidget {
   // Data dummy
   final List<Map<String, String>> _pengeluaranData = const [
     {
-      "no": "1",
       "nama": "Beli Sapu",
       "kategori": "Keamanan & Kebersihan",
       "tanggal": "22 Oktober 2025",
       "nominal": "Rp 25.000",
     },
     {
-      "no": "2",
       "nama": "Perbaikan Lampu Jalan",
       "kategori": "Pemeliharaan Fasilitas",
       "tanggal": "17 Oktober 2025",
       "nominal": "Rp 150.000",
     },
     {
-      "no": "3",
       "nama": "Santunan anak Yatim",
       "kategori": "Kegiatan Sosial",
       "tanggal": "15 Oktober 2025",
       "nominal": "Rp 50.000",
     },
     {
-      "no": "4",
       "nama": "Pembangunan Pos RW",
       "kategori": "Pembangunan",
       "tanggal": "11 September 2025",
       "nominal": "Rp 320.000",
     },
     {
-      "no": "5",
       "nama": "Lomba 17an",
       "kategori": "Kegiatan Warga",
       "tanggal": "10 Agustus 2025",
@@ -116,7 +111,6 @@ class Pengeluaran extends StatelessWidget {
           child: DataTable2(
             columnSpacing: 12,
             horizontalMargin: 12,
-            minWidth: 600,
             headingRowColor: MaterialStateProperty.all(
               theme.colorScheme.primary.withOpacity(0.1),
             ),
@@ -125,23 +119,16 @@ class Pengeluaran extends StatelessWidget {
               color: theme.colorScheme.secondary,
             ),
             columns: const [
-              DataColumn2(label: Text('No'), size: ColumnSize.S),
-              DataColumn2(label: Text('Nama'), size: ColumnSize.L),
-              DataColumn2(label: Text('kategori')),
-              DataColumn2(label: Text('Tanggal')),
+              DataColumn2(label: Text('Nama')),
               DataColumn2(label: Text('Nominal'), numeric: true),
-              DataColumn2(
-                label: Center(child: Text('Aksi')),
-                size: ColumnSize.L,
-              ),
             ],
             rows: _pengeluaranData.map((item) {
-              return DataRow(
+              return DataRow2(
+                onTap: () {
+                  context.push('/detail-pengeluaran-all', extra: item);
+                },
                 cells: [
-                  DataCell(Text(item['no']!)),
                   DataCell(Text(item['nama']!)),
-                  DataCell(Text(item['kategori']!)),
-                  DataCell(Text(item['tanggal']!)),
                   DataCell(
                     Text(
                       item['nominal']!,
@@ -149,23 +136,6 @@ class Pengeluaran extends StatelessWidget {
                         color: theme.colorScheme.error,
                         fontWeight: FontWeight.bold,
                       ),
-                    ),
-                  ),
-                  DataCell(
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        IconButton(
-                          icon: Icon(
-                            Icons.remove_red_eye,
-                            size: 20,
-                            color: theme.colorScheme.primary,
-                          ),
-                          onPressed: () {
-                            context.push('/detail-pengeluaran', extra: item);
-                          },
-                        ),
-                      ],
                     ),
                   ),
                 ],

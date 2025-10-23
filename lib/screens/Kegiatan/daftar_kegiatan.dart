@@ -9,7 +9,6 @@ class KegiatanScreen extends StatelessWidget {
   // Data dummy
   final List<Map<String, String>> _kegiatanData = const [
     {
-      "no": "1",
       "nama": "Kerja Bakti Bulanan",
       "kategori": "Kebersihan & Keamanan",
       "pj": "Pak RT",
@@ -18,7 +17,6 @@ class KegiatanScreen extends StatelessWidget {
       "deskripsi": "Membersihkan selokan dan area umum.",
     },
     {
-      "no": "2",
       "nama": "Rapat Karang Taruna",
       "kategori": "Komunitas & Sosial",
       "pj": "Ketua Karang Taruna",
@@ -28,7 +26,6 @@ class KegiatanScreen extends StatelessWidget {
           "Pembubaran panitia PHBN sekaligus membahas rencana kegiatan akhir tahun.",
     },
     {
-      "no": "3",
       "nama": "Jalan Sehat",
       "kategori": "Kesehatan & Olahraga",
       "pj": "Karang Taruna",
@@ -37,7 +34,6 @@ class KegiatanScreen extends StatelessWidget {
       "deskripsi": "Jalan sehat, senam, dan pembagian doorprize.",
     },
     {
-      "no": "4",
       "nama": "Upacara 17 Agustus",
       "kategori": "Komunitas & Sosial",
       "pj": "Karang Taruna",
@@ -47,7 +43,6 @@ class KegiatanScreen extends StatelessWidget {
           "Upacara peringatan detik-detik proklamasi kemerdekaan Republik Indonesia.",
     },
     {
-      "no": "5",
       "nama": "Seminar Warga",
       "kategori": "Pendidikan",
       "pj": "Kepala Desa",
@@ -165,7 +160,6 @@ class KegiatanScreen extends StatelessWidget {
           child: DataTable2(
             columnSpacing: 12,
             horizontalMargin: 12,
-            minWidth: 700,
             headingRowColor: MaterialStateProperty.all(
               theme.colorScheme.primary.withOpacity(0.1),
             ),
@@ -174,55 +168,17 @@ class KegiatanScreen extends StatelessWidget {
               color: theme.colorScheme.secondary,
             ),
             columns: const [
-              DataColumn2(label: Text('No'), size: ColumnSize.S),
-              DataColumn2(label: Text('Nama Kegiatan'), size: ColumnSize.L),
-              DataColumn2(label: Text('Penanggung Jawab'), size: ColumnSize.L),
+              DataColumn2(label: Text('Nama Kegiatan')),
               DataColumn2(label: Text('Tanggal')),
-              DataColumn2(
-                label: Center(child: Text('Aksi')),
-                size: ColumnSize.L,
-              ),
             ],
             rows: _kegiatanData.map((item) {
-              return DataRow(
+              return DataRow2(
+                onTap: () {
+                  context.push('/detail-kegiatan', extra: item);
+                },
                 cells: [
-                  DataCell(Text(item['no']!)),
                   DataCell(Text(item['nama']!)),
-                  DataCell(Text(item['pj']!)),
                   DataCell(Text(item['tanggal']!)),
-                  DataCell(
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        IconButton(
-                          icon: Icon(
-                            Icons.remove_red_eye,
-                            size: 20,
-                            color: theme.colorScheme.primary,
-                          ),
-                          onPressed: () =>
-                              context.push('/detail-kegiatan', extra: item),
-                        ),
-                        IconButton(
-                          icon: Icon(
-                            Icons.edit,
-                            size: 20,
-                            color: Colors.orange.shade700,
-                          ),
-                          onPressed: () =>
-                              context.push('/edit-kegiatan', extra: item),
-                        ),
-                        IconButton(
-                          icon: Icon(
-                            Icons.delete,
-                            size: 20,
-                            color: theme.colorScheme.error,
-                          ),
-                          onPressed: () => _showDeleteConfirmation(context),
-                        ),
-                      ],
-                    ),
-                  ),
                 ],
               );
             }).toList(),

@@ -211,7 +211,6 @@ class _TambahKegiatanFormState extends State<TambahKegiatanForm> {
           ),
           const SizedBox(height: 8),
           _buildImagePicker(context),
-          const SizedBox(height: 20),
           const SizedBox(height: 40),
           ElevatedButton(onPressed: _submitForm, child: const Text('Simpan')),
         ],

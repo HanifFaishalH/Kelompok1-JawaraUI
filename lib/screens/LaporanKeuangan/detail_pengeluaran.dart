@@ -82,7 +82,7 @@ class DetailPengeluaran extends StatelessWidget {
                       _buildDetailRow(
                         context,
                         "Jenis Pengeluaran",
-                        pengeluaranData['jenis'] ?? '-',
+                        pengeluaranData['kategori'] ?? '-',
                       ),
                       const Divider(height: 1),
                       _buildDetailRow(

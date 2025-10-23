@@ -179,7 +179,6 @@ class _TambahBroadcastFormState extends State<TambahBroadcastForm> {
           const SizedBox(height: 8),
           _buildDocumentPicker(context),
           const SizedBox(height: 40),
-          const SizedBox(height: 40),
 
           ElevatedButton(onPressed: _submitForm, child: const Text('Simpan')),
         ],
