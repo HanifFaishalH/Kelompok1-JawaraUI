@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jawaramobile_1/theme/AppTheme.dart';
 
 class LoginRegisterLink extends StatelessWidget {
   final VoidCallback onTap;
@@ -7,6 +8,8 @@ class LoginRegisterLink extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -27,7 +30,7 @@ class LoginRegisterLink extends StatelessWidget {
             style: TextStyle(
               fontSize: 14,
               fontWeight: FontWeight.w600,
-              color: Color(0xFF6D28D9),
+              color: Color(0xFFFF8100),
             ),
           ),
         ),
