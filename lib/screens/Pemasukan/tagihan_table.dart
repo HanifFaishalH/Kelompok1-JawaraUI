@@ -50,7 +50,7 @@ class TagihanTable extends StatelessWidget {
       child: DataTable2(
         columnSpacing: 12,
         horizontalMargin: 12,
-        minWidth: 800,
+        minWidth: 300,
         headingRowColor: MaterialStateProperty.all(
           theme.colorScheme.primary.withOpacity(0.1),
         ),
@@ -62,27 +62,28 @@ class TagihanTable extends StatelessWidget {
           DataColumn2(label: Text('No'), size: ColumnSize.S),
           DataColumn2(label: Text('Nama Keluarga'), size: ColumnSize.L),
           // DataColumn2(label: Text('Status Keluarga'), size: ColumnSize.L),
-          DataColumn2(label: Text('Jenis'), size: ColumnSize.M),
+          // DataColumn2(label: Text('Jenis'), size: ColumnSize.M),
           // DataColumn2(label: Text('Kode Tagihan'), size: ColumnSize.M),
           DataColumn2(
             label: Text('Nominal'),
             numeric: true,
             size: ColumnSize.L,
           ),
-          DataColumn2(label: Text('Periode'), size: ColumnSize.L),
-          DataColumn2(label: Text('Status'), size: ColumnSize.S),
-          DataColumn2(
-            label: Center(child: Text('Aksi')),
-            size: ColumnSize.S,
-          ),
+          // DataColumn2(label: Text('Periode'), size: ColumnSize.L),
+          DataColumn2(label: Text('Status'), size: ColumnSize.L),
+          // DataColumn2(
+          //   label: Center(child: Text('Aksi')),
+          //   size: ColumnSize.S,
+          // ),
         ],
         rows: daftarTagihan.map((item) {
-          return DataRow(
+          return DataRow2(
+            onTap: () => onViewPressed(item),
             cells: [
               DataCell(Text(item['no']!)),
               DataCell(Text(item['namaKeluarga']!)),
               // DataCell(Text(item['statusKeluarga']!)),
-              DataCell(Text(item['jenis']!)),
+              // DataCell(Text(item['jenis']!)),
               // DataCell(Text(item['kodeTagihan']!)),
               DataCell(
                 Text(
@@ -93,9 +94,9 @@ class TagihanTable extends StatelessWidget {
                   ),
                 ),
               ),
-              DataCell(Text(item['periode']!)),
+              // DataCell(Text(item['periode']!)),
               DataCell(Text(item['status']!)),
-              DataCell(_buildActionButtons(item, theme)),
+              // DataCell(_buildActionButtons(item, theme)),
             ],
           );
         }).toList(),
