@@ -110,49 +110,49 @@
 
 ![daftarkegiatan](./assets/screenshot/daftar_kegiatan.gif)
 
-#### Filter Kegiatan
+#### Filter Kegiatan (Dio)
 
 ![filterkegiatan](./assets/screenshot/filter_kegiatan.gif)
 
-#### Detail Kegiatan
+#### Detail Kegiatan (Dio)
 
 ![detailkegiatan](./assets/screenshot/detail_kegiatan.png)
 
-#### Tambah Kegiatan
+#### Tambah Kegiatan (Dio)
 
 ![tambahkegiatan](./assets/screenshot/tambah_kegiatan.gif)
 
-#### Edit Kegiatan
+#### Edit Kegiatan (Dio)
 
 ![editkegiatan](./assets/screenshot/edit_kegiatan.gif)
 
-#### Hapus Kegiatan
+#### Hapus Kegiatan (Dio)
 
 ![hapuskegiatan](./assets/screenshot/hapus_kegiatan.gif)
 
 ### Broadcast
 
-#### Daftar Broadcast
+#### Daftar Broadcast (Dio)
 
 ![daftarbroadcast](./assets/screenshot/daftar_broadcast.gif)
 
-#### Filter Broadcast
+#### Filter Broadcast (Dio)
 
 ![filterbroadcast](./assets/screenshot/filter_broadcast.gif)
 
-#### Detail Broadcast
+#### Detail Broadcast (Dio)
 
 ![detailbroadcast](./assets/screenshot/detail_broadcast.gif)
 
-#### Tambah Broadcast
+#### Tambah Broadcast (Dio)
 
 ![tambahbroadcast](./assets/screenshot/tambah_broadcast.gif)
 
-#### Edit Broadcast
+#### Edit Broadcast (Dio)
 
 ![editbroadcast](./assets/screenshot/edit_broadcast.gif)
 
-#### Hapus Broadcast
+#### Hapus Broadcast (Dio)
 
 ![hapusbroadcast](./assets/screenshot/hapus_broadcast.gif)
 
