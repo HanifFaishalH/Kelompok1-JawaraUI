@@ -76,41 +76,33 @@
 
 ### Laporan Keuangan
 
-#### Semua Pemasukan
+#### Semua Pemasukan (Dio)
 
 ![semuapemasukan](./assets/screenshot/semua_pemasukan.gif)
 
-#### Filter Pemasukan
+#### Filter Pemasukan (Dio)
 
-![filterpemasukan](./assets/screenshot/filter_semua_pemasukan.gif)
+![filterpemasukan](./assets/screenshot/filter_pemasukan_all.gif)
 
-#### Detail Pemasukan
+#### Detail Pemasukan (Dio)
 
-![detailpemasukan](./assets/screenshot/detail_pemasukan_all.gif)
+![detailpemasukan](./assets/screenshot/detail_pemasukan.gif)
 
-![detailpemasukan](./assets/screenshot/detail_pemasukan_all.png)
-
-#### Semua Pengeluaran
+#### Semua Pengeluaran (Dio)
 
 ![semuapengeluaran](./assets/screenshot/semua_pengeluaran.gif)
 
-#### Filter Pengeluaran
+#### Filter Pengeluaran (Dio)
 
-![filterpengeluaran](./assets/screenshot/filter_semua_pengeluaran.gif)
+![filterpengeluaran](./assets/screenshot/filter_pengeluaran_all.gif)
 
-#### Detail Pengeluaran
+#### Detail Pengeluaran (Dio)
 
 ![detailpengeluaran](./assets/screenshot/detail_pengeluaran_all.gif)
 
-![detailpengeluaran](./assets/screenshot/detail_pengeluaran_all.png)
-
-#### Cetak Laporan Keuangan
+#### Cetak Laporan Keuangan (Dio)
 
 ![cetaklaporan](./assets/screenshot/cetak_laporan.gif)
-
-![cetaklaporan](./assets/screenshot/cetak_laporan.png)
-
-![cetaklaporan](./assets/screenshot/cetak_laporan_isi.png)
 
 ### Kegiatan
 
