@@ -110,23 +110,23 @@
 
 ![daftarkegiatan](./assets/screenshot/daftar_kegiatan.gif)
 
-#### Filter Kegiatan (Dio)
+#### Filter Kegiatan
 
 ![filterkegiatan](./assets/screenshot/filter_kegiatan.gif)
 
-#### Detail Kegiatan (Dio)
+#### Detail Kegiatan
 
-![detailkegiatan](./assets/screenshot/detail_kegiatan.gif)
+![detailkegiatan](./assets/screenshot/detail_kegiatan.png)
 
-#### Tambah Kegiatan (Dio)
+#### Tambah Kegiatan
 
 ![tambahkegiatan](./assets/screenshot/tambah_kegiatan.gif)
 
-#### Edit Kegiatan (Dio)
+#### Edit Kegiatan
 
 ![editkegiatan](./assets/screenshot/edit_kegiatan.gif)
 
-#### Hapus Kegiatan (Dio)
+#### Hapus Kegiatan
 
 ![hapuskegiatan](./assets/screenshot/hapus_kegiatan.gif)
 
