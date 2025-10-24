@@ -2,13 +2,13 @@
 
 ## Tim Kelompok 1
 
-| Team Member                   | NIM        | Kontribusi                                                  |
-| :---------------------------- | :--------- | :---------------------------------------------------------- |
-| Adani Salsabila               | 2341720123 | Penerimaan Warga, Pesan Warga Informasi Aspirasi            |
-| Dio Andika Pradana Mulia Tama | 2341720098 | Menu Pengeluaran, Laporan Keuangan, Kegiatan & Broadcast    |
-| Gabriel Batavia Xaverius      | 2341720184 | Menu LogActivity, Menu ManjamenPengguna, Menu ChannelTransfer                                                |
-| Hanif Faisal Hilmi            | 2341720116 | Dashboard Homescreen, Data Warga dan Rumah, Mutasi Keluarga |
-| Muhammad Nur Aziz             | 2341720237 | Login, Register Page, Menu Pemasukan                        |
+| Team Member                   | NIM        | Kontribusi                                                    |
+| :---------------------------- | :--------- | :------------------------------------------------------------ |
+| Adani Salsabila               | 2341720123 | Penerimaan Warga, Pesan Warga Informasi Aspirasi              |
+| Dio Andika Pradana Mulia Tama | 2341720098 | Menu Pengeluaran, Laporan Keuangan, Kegiatan & Broadcast      |
+| Gabriel Batavia Xaverius      | 2341720184 | Menu LogActivity, Menu ManjamenPengguna, Menu ChannelTransfer |
+| Hanif Faisal Hilmi            | 2341720116 | Dashboard Homescreen, Data Warga dan Rumah, Mutasi Keluarga   |
+| Muhammad Nur Aziz             | 2341720237 | Login, Register Page, Menu Pemasukan                          |
 
 ## Link Figma
 
@@ -58,27 +58,21 @@
 
 ### Menu Pengeluaran
 
-#### Daftar Pengeluaran
+#### Daftar Pengeluaran (Dio)
 
 ![daftarpengeluaran](./assets/screenshot/daftar_pengeluaran.gif)
 
-#### Filter Pengeluaran
+#### Filter Pengeluaran (Dio)
 
 ![filterpengeluaran](./assets/screenshot/filter_pengeluaran.gif)
 
-#### Detail Pengeluaran
+#### Detail Pengeluaran (Dio)
 
 ![detailpengeluaran](./assets/screenshot/detail_pengeluaran.gif)
 
-![detailpengeluaran](./assets/screenshot/detail_pengeluaran.png)
-
-#### Tambah Pengeluaran
-
-![tambahpengeluaran](./assets/screenshot/tambah_pengeluaran.png)
+#### Tambah Pengeluaran (Dio)
 
 ![tambahpengeluaran](./assets/screenshot/tambah_pengeluaran.gif)
-
-![tambahpengeluaran](./assets/screenshot/tambah_pengeluaran_isi.png)
 
 ### Laporan Keuangan
 
@@ -160,12 +154,12 @@
 ![filter_aspirasi2](./assets/screenshot/filter_aspirasi2.png)
 ![filter_aspirasi3](./assets/screenshot/filter_aspirasi3.png)
 
-
-
 #### LogActiviy
+
 ![LogActivity](./assets/screenshot/logactivity.gif)
 
 #### Manajamen Pengguna
+
 ![ManjamenPengguna](./assets/screenshot/manajemenpengguna.gif)
 
 #### Channel Tranfer

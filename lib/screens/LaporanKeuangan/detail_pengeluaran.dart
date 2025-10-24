@@ -17,19 +17,24 @@ class DetailPengeluaran extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 12.0),
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
             label,
             style: theme.textTheme.bodyLarge?.copyWith(color: Colors.grey[900]),
           ),
-          Text(
-            value,
-            style: theme.textTheme.bodyLarge?.copyWith(
-              fontWeight: FontWeight.bold,
-              color: isNominal
-                  ? theme.colorScheme.error
-                  : theme.colorScheme.onSurface,
+          const SizedBox(width: 16),
+          Expanded(
+            child: Text(
+              value,
+              textAlign: TextAlign.end,
+              style: theme.textTheme.bodyLarge?.copyWith(
+                fontWeight: FontWeight.bold,
+                color: isNominal
+                    ? theme.colorScheme.error
+                    : theme.colorScheme.onSurface,
+              ),
             ),
           ),
         ],
