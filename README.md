@@ -116,7 +116,7 @@
 
 #### Detail Kegiatan (Dio)
 
-![detailkegiatan](./assets/screenshot/detail_kegiatan.png)
+![detailkegiatan](./assets/screenshot/detail_kegiatan.gif)
 
 #### Tambah Kegiatan (Dio)
 
