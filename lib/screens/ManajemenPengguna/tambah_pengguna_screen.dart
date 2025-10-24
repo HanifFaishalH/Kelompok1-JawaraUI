@@ -17,7 +17,6 @@ class _TambahPenggunaScreenState extends State<TambahPenggunaScreen> {
 
   void _submit() {
     if (_formKey.currentState?.validate() ?? false) {
-      // TODO: call API create user
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Pengguna disimpan')),
       );
@@ -37,18 +36,8 @@ class _TambahPenggunaScreenState extends State<TambahPenggunaScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
     return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        title: Text(
-          "Tambah Akun Pengguna",
-          style: theme.textTheme.titleLarge?.copyWith(color: theme.colorScheme.onPrimary),
-        ),
-        backgroundColor: Colors.deepPurple,
-        elevation: 0,
-        iconTheme: IconThemeData(color: theme.colorScheme.onPrimary),
-      ),
+      appBar: AppBar(title: const Text("Tambah Akun Pengguna")),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20),
         child: Form(
@@ -79,15 +68,9 @@ class _TambahPenggunaScreenState extends State<TambahPenggunaScreen> {
               const SizedBox(height: 20),
               Row(
                 children: [
-                  ElevatedButton(
-                    onPressed: _submit,
-                    child: const Text("Simpan"),
-                  ),
+                  ElevatedButton(onPressed: _submit, child: const Text("Simpan")),
                   const SizedBox(width: 12),
-                  OutlinedButton(
-                    onPressed: _reset,
-                    child: const Text("Reset"),
-                  ),
+                  OutlinedButton(onPressed: _reset, child: const Text("Reset")),
                 ],
               ),
             ],

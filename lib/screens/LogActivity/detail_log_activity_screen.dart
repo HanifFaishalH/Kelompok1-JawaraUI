@@ -12,8 +12,9 @@ class DetailLogActivityScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(label,
-              style:
-                  theme.textTheme.bodyLarge?.copyWith(color: Colors.grey[600])),
+              style: theme.textTheme.bodyLarge?.copyWith(
+                color: theme.colorScheme.onSurface.withOpacity(.6),
+              )),
           Flexible(
             child: Align(
               alignment: Alignment.centerRight,
@@ -34,29 +35,13 @@ class DetailLogActivityScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
     return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Colors.deepPurple,
-        elevation: 0,
-        title: Text(
-          "Detail Log Aktivitas",
-          style: theme.textTheme.titleLarge?.copyWith(
-            color: theme.colorScheme.onPrimary,
-          ),
-        ),
-        iconTheme: IconThemeData(color: theme.colorScheme.onPrimary),
-      ),
+      appBar: AppBar(title: const Text("Detail Log Aktivitas")),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(24),
         child: Card(
-          elevation: 2,
-          color: Colors.white,
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
             child: Column(
               children: [
                 _buildRow(context, "No", logData['no'] ?? '-'),

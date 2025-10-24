@@ -26,7 +26,6 @@ class _TambahChannelScreenState extends State<TambahChannelScreen> {
 
   void _simpan() {
     if (!(_formKey.currentState?.validate() ?? false)) return;
-    // TODO: kirim ke backend + upload image
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(content: Text('Channel disimpan')),
     );
@@ -63,9 +62,7 @@ class _TambahChannelScreenState extends State<TambahChannelScreen> {
             borderRadius: BorderRadius.circular(12),
             color: Colors.grey.shade100,
           ),
-          child: const Center(
-            child: Text("Upload gambar (png/jpg) – placeholder"),
-          ),
+          child: const Center(child: Text("Upload gambar (png/jpg) – placeholder")),
         ),
         const SizedBox(height: 16),
       ],
@@ -74,16 +71,8 @@ class _TambahChannelScreenState extends State<TambahChannelScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
     return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        title: Text("Buat Transfer Channel",
-          style: theme.textTheme.titleLarge?.copyWith(color: theme.colorScheme.onPrimary)),
-        backgroundColor: Colors.deepPurple,
-        elevation: 0,
-        iconTheme: IconThemeData(color: theme.colorScheme.onPrimary),
-      ),
+      appBar: AppBar(title: const Text("Buat Transfer Channel")),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20),
         child: Form(
