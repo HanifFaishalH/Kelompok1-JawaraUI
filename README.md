@@ -106,31 +106,55 @@
 
 ### Kegiatan
 
-#### Daftar Kegiatan
+#### Daftar Kegiatan (Dio)
 
 ![daftarkegiatan](./assets/screenshot/daftar_kegiatan.gif)
 
-#### Filter Kegiatan
+#### Filter Kegiatan (Dio)
 
 ![filterkegiatan](./assets/screenshot/filter_kegiatan.gif)
 
-#### Detail Kegiatan
+#### Detail Kegiatan (Dio)
 
-![detailkegiatan](./assets/screenshot/detail_kegiatan.png)
+![detailkegiatan](./assets/screenshot/detail_kegiatan.gif)
 
-#### Tambah Kegiatan
+#### Tambah Kegiatan (Dio)
 
 ![tambahkegiatan](./assets/screenshot/tambah_kegiatan.gif)
 
-#### Edit Kegiatan
+#### Edit Kegiatan (Dio)
 
 ![editkegiatan](./assets/screenshot/edit_kegiatan.gif)
 
-#### Hapus Kegiatan
+#### Hapus Kegiatan (Dio)
 
 ![hapuskegiatan](./assets/screenshot/hapus_kegiatan.gif)
 
 ### Broadcast
+
+#### Daftar Broadcast
+
+![daftarbroadcast](./assets/screenshot/daftar_broadcast.gif)
+
+#### Filter Broadcast
+
+![filterbroadcast](./assets/screenshot/filter_broadcast.gif)
+
+#### Detail Broadcast
+
+![detailbroadcast](./assets/screenshot/detail_broadcast.gif)
+
+#### Tambah Broadcast
+
+![tambahbroadcast](./assets/screenshot/tambah_broadcast.gif)
+
+#### Edit Broadcast
+
+![editbroadcast](./assets/screenshot/edit_broadcast.gif)
+
+#### Hapus Broadcast
+
+![hapusbroadcast](./assets/screenshot/hapus_broadcast.gif)
 
 #### Penerimaan Warga
 
