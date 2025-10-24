@@ -18,11 +18,11 @@
 
 ## Tampilan JawaraMobile
 
-### Login Page
+### Login Page (aziz)
 
-![login](./assets/screenshot/login.jpg)
+![login](./assets/screenshot/login.gif)
 
-### Register Page
+### Register Page (aziz)
 
 ![register](./assets/screenshot/register.gif)
 
@@ -30,21 +30,21 @@
 
 ![home](./assets/screenshot/home.gif)
 
-### Menu Pemasukan
+### Menu Pemasukan (aziz)
 
-#### Kategori Iuran
+#### Kategori Iuran (aziz)
 
 ![kategoriiuran](./assets/screenshot/kategori_iuran.gif)
 
-#### Tagih Iuran
+#### Tagih Iuran (aziz)
 
 ![tagih](./assets/screenshot/tagihan_iuran.gif)
 
-#### Daftar Tagihan
+#### Daftar Tagihan (aziz)
 
 ![daftartagih](./assets/screenshot/daftar_tagihan.gif)
 
-#### Lain-lain
+#### Lain-lain (aziz)
 
 ![lain-lain](./assets/screenshot/lain_lain.gif)
 
